@@ -33,12 +33,16 @@
 
         public string UserId { get; set; }
 
+        public int? TeamId { get; set; }
+
         public bool IsOfficial { get; set; }
 
         [Required]
         public virtual Contest Contest { get; set; }
 
         public virtual UserProfile User { get; set; }
+
+        public virtual Team Team { get; set; }
 
         public virtual ICollection<Submission> Submissions
         {

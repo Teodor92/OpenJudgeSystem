@@ -1,6 +1,7 @@
 ﻿namespace OJS.Data.Models
 {
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
@@ -12,6 +13,11 @@
 
     public class UserProfile : IdentityUser, IDeletableEntity, IAuditInfo
     {
+        private ICollection<Team> ledTeams;
+        private ICollection<Team> teams;
+
+        private ICollection<TeamApplication> teamApplications; 
+
         public UserProfile()
             : this(string.Empty, string.Empty)
         {
@@ -23,6 +29,9 @@
             this.Email = email;
             this.UserSettings = new UserSettings();
             this.CreatedOn = DateTime.Now;
+            this.ledTeams = new HashSet<Team>();
+            this.teams = new HashSet<Team>();
+            this.teamApplications = new HashSet<TeamApplication>();
         }
 
         [Required]
@@ -42,7 +51,26 @@
         public UserSettings UserSettings { get; set; }
 
         public Guid? ForgottenPasswordToken { get; set; }
+
+        public virtual ICollection<Team> LedTeams
+        {
+            get { return this.ledTeams; }
+            set { this.ledTeams = value; }
+        }
+
+        public virtual ICollection<TeamApplication> TeamApplications
+        {
+            get { return this.teamApplications; }
+            set { this.teamApplications = value; }
+        }
         
+        [InverseProperty("Members")]
+        public virtual ICollection<Team> Teams
+        {
+            get { return this.teams; }
+            set { this.teams = value; }
+        }
+
         #region IDeletableEntity
         public bool IsDeleted { get; set; }
 

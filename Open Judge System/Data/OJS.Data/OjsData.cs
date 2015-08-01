@@ -115,6 +115,22 @@
             }
         }
 
+        public IDeletableEntityRepository<Team> Teams
+        {
+            get
+            {
+                return this.GetDeletableEntityRepository<Team>();
+            }
+        }
+
+        public IDeletableEntityRepository<TeamApplication> TeamApplications
+        {
+            get
+            {
+                return this.GetDeletableEntityRepository<TeamApplication>();
+            }
+        }
+
         public ITestRunsRepository TestRuns
         {
             get

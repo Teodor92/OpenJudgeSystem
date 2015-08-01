@@ -66,6 +66,7 @@
     <Compile Include="Checker.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="ProblemResource.cs" />
+    <Compile Include="ApplicationStatus.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="SourceCode.cs" />
     <Compile Include="SubmissionType.cs" />
@@ -81,6 +82,8 @@
     <Compile Include="Problem.cs" />
     <Compile Include="Submission.cs" />
     <Compile Include="Tag.cs" />
+    <Compile Include="Team.cs" />
+    <Compile Include="TeamApplication.cs" />
     <Compile Include="Test.cs" />
     <Compile Include="TestRun.cs" />
     <Compile Include="UserProfile.cs" />

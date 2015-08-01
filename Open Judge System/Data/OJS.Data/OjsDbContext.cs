@@ -60,6 +60,10 @@
 
         public virtual IDbSet<ParticipantAnswer> ParticipantAnswers { get; set; }
 
+        public virtual IDbSet<Team> Teams { get; set; }
+
+        public virtual IDbSet<TeamApplication> TeamApplications { get; set; }
+
         public DbContext DbContext
         {
             get

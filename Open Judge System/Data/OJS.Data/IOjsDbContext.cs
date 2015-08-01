@@ -40,6 +40,10 @@
 
         IDbSet<ParticipantAnswer> ParticipantAnswers { get; set; }
 
+        IDbSet<Team> Teams { get; set; }
+
+        IDbSet<TeamApplication> TeamApplications { get; set; }
+
         DbContext DbContext { get; }
 
         int SaveChanges();

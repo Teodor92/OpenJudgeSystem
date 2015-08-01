@@ -48,6 +48,10 @@
 
         IDeletableEntityRepository<SourceCode> SourceCodes { get; }
 
+        IDeletableEntityRepository<Team> Teams { get; }
+
+        IDeletableEntityRepository<TeamApplication> TeamApplications { get; }
+
         IOjsDbContext Context { get; }
 
         int SaveChanges();
