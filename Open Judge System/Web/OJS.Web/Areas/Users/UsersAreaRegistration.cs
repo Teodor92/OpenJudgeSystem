@@ -27,6 +27,11 @@ namespace OJS.Web.Areas.Users
                 new { controller = "Settings", action = GlobalConstants.Index, id = UrlParameter.Optional });
 
             context.MapRoute(
+                "Users_teams",
+                "Users/Teams/{action}/{id}",
+                new { controller = "Teams", action = GlobalConstants.Index, id = UrlParameter.Optional });
+
+            context.MapRoute(
                 "Users_profile",
                 "Users/{id}",
                 new { controller = "Profile", action = GlobalConstants.Index, id = UrlParameter.Optional });

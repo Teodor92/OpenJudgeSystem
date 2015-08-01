@@ -2,6 +2,7 @@
 {
     using System.ComponentModel.DataAnnotations;
 
+    using OJS.Common;
     using OJS.Data.Contracts;
 
     public class TeamApplication : DeletableEntity
@@ -19,5 +20,9 @@
         public UserProfile Requester { get; set; }
 
         public ApplicationStatus Status { get; set; }
+
+        [MinLength(GlobalConstants.TeamApplicationCommentMinLength)]
+        [MaxLength(GlobalConstants.TeamApplicationCommentMaxLength)]
+        public string Comment { get; set; }
     }
 }

@@ -1,0 +1,31 @@
+﻿@model OJS.Web.Areas.Users.ViewModels.Teams.UserTeamsViewModel
+
+@{
+    ViewBag.Title = "Отбори";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>Моите отбори</h3>
+<section class="well well-lg">
+    @if (Model.Teams.Any())
+    {
+        <p>In dev</p>
+    }
+    else
+    {
+        <p>Не участвате в отбори</p>
+    }
+</section>
+
+<h3>Моите заявление за участия в отбори</h3>
+<section class="well well-lg">
+    @if (Model.Applications.Any())
+    {
+        <p>In dev</p>
+    }
+    else
+    {
+        <p>Нямате подадени заявленения за участие в отбори</p>
+    }
+</section>

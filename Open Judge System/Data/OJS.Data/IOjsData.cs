@@ -48,7 +48,7 @@
 
         IDeletableEntityRepository<SourceCode> SourceCodes { get; }
 
-        IDeletableEntityRepository<Team> Teams { get; }
+        ITeamsRepository Teams { get; }
 
         IDeletableEntityRepository<TeamApplication> TeamApplications { get; }
 

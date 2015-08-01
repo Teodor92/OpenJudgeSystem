@@ -34,5 +34,12 @@
         public const int MinimumSearchTermLength = 3;
 
         #endregion
+
+        #region Teams
+
+        public const int TeamApplicationCommentMaxLength = 6;
+        public const int TeamApplicationCommentMinLength = 300;
+
+        #endregion
     }
 }

@@ -26,6 +26,7 @@
     <SccProvider>SAK</SccProvider>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -844,7 +845,13 @@
     <Compile Include="Areas\Contests\ViewModels\Submissions\SubmissionTypeViewModel.cs" />
     <Compile Include="Areas\Users\Controllers\ProfileController.cs" />
     <Compile Include="Areas\Users\Controllers\SettingsController.cs" />
+    <Compile Include="Areas\Users\Controllers\TeamsController.cs" />
     <Compile Include="Areas\Users\Helpers\NullDisplayFormatAttribute.cs" />
+    <Compile Include="Areas\Users\InputModels\Teams\TeamInputModel.cs" />
+    <Compile Include="Areas\Users\InputModels\Teams\TeamApplicationInputModel.cs" />
+    <Compile Include="Areas\Users\ViewModels\Teams\TeamApplicationViewModel.cs" />
+    <Compile Include="Areas\Users\ViewModels\Teams\TeamViewModel.cs" />
+    <Compile Include="Areas\Users\ViewModels\Teams\UserTeamsViewModel.cs" />
     <Compile Include="Controllers\RedirectsController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="ViewModels\Account\ChangeUsernameViewModel.cs" />
@@ -1081,6 +1088,9 @@
     <Content Include="Areas\Contests\Views\Results\_StatsChartPartial.cshtml" />
     <Content Include="Areas\Administration\Views\SubmissionTypes\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Enum.cshtml" />
+    <Content Include="Areas\Users\Views\Teams\Index.cshtml" />
+    <Content Include="Areas\Users\Views\Teams\Create.cshtml" />
+    <Content Include="Areas\Users\Views\Teams\CreateApplication.cshtml" />
     <None Include="Properties\PublishProfiles\bgcoder.com.pubxml" />
     <None Include="Properties\PublishProfiles\File System.pubxml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
@@ -1179,7 +1189,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="App_GlobalResources\Home\ViewModels\" />
-    <Folder Include="Areas\Users\Models\" />
     <Folder Include="Files\" />
   </ItemGroup>
   <ItemGroup>
