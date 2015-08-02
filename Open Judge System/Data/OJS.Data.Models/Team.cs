@@ -8,7 +8,7 @@
 
     public class Team : DeletableEntity
     {
-        private ICollection<UserProfile> members;
+        private ICollection<UserInTeam> members;
         private ICollection<Participant> participants;
         private ICollection<TeamApplication> teamApplications; 
 
@@ -16,7 +16,7 @@
         {
             this.participants = new HashSet<Participant>();
             this.teamApplications = new HashSet<TeamApplication>();
-            this.members = new HashSet<UserProfile>();
+            this.members = new HashSet<UserInTeam>();
         }
 
         [Key]
@@ -24,11 +24,6 @@
 
         [Required]
         public string Name { get; set; }
-
-        public string LeaderId { get; set; }
-
-        [InverseProperty("LedTeams")]
-        public virtual UserProfile Leader { get; set; }
 
         public virtual ICollection<TeamApplication> TeamApplications
         {
@@ -42,8 +37,7 @@
             set { this.participants = value; }
         }
 
-        [InverseProperty("Teams")]
-        public virtual ICollection<UserProfile> Members
+        public virtual ICollection<UserInTeam> Members
         {
             get { return this.members; }
             set { this.members = value; }

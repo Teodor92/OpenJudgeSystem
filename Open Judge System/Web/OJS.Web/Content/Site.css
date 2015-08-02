@@ -185,3 +185,19 @@ input[type="checkbox"].input-validation-error {
 .diff {
     color: black;
 }
+
+.bottom-buffer {
+    margin-bottom: 20px;
+}
+
+.top-buffer {
+    margin-top: 20px;
+}
+
+.left-buffer {
+    margin-left: 20px;
+}
+
+.right-buffer {
+    margin-right: 20px;
+}

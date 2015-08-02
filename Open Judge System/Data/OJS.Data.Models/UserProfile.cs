@@ -13,9 +13,7 @@
 
     public class UserProfile : IdentityUser, IDeletableEntity, IAuditInfo
     {
-        private ICollection<Team> ledTeams;
-        private ICollection<Team> teams;
-
+        private ICollection<UserInTeam> teams;
         private ICollection<TeamApplication> teamApplications; 
 
         public UserProfile()
@@ -29,8 +27,7 @@
             this.Email = email;
             this.UserSettings = new UserSettings();
             this.CreatedOn = DateTime.Now;
-            this.ledTeams = new HashSet<Team>();
-            this.teams = new HashSet<Team>();
+            this.teams = new HashSet<UserInTeam>();
             this.teamApplications = new HashSet<TeamApplication>();
         }
 
@@ -52,20 +49,13 @@
 
         public Guid? ForgottenPasswordToken { get; set; }
 
-        public virtual ICollection<Team> LedTeams
-        {
-            get { return this.ledTeams; }
-            set { this.ledTeams = value; }
-        }
-
         public virtual ICollection<TeamApplication> TeamApplications
         {
             get { return this.teamApplications; }
             set { this.teamApplications = value; }
         }
         
-        [InverseProperty("Members")]
-        public virtual ICollection<Team> Teams
+        public virtual ICollection<UserInTeam> Teams
         {
             get { return this.teams; }
             set { this.teams = value; }

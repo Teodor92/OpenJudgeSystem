@@ -123,11 +123,11 @@
             }
         }
 
-        public IDeletableEntityRepository<TeamApplication> TeamApplications
+        public ITeamApplicationsRepository TeamApplications
         {
             get
             {
-                return this.GetDeletableEntityRepository<TeamApplication>();
+                return (TeamApplicationsRepository)this.GetRepository<TeamApplication>();
             }
         }
 
@@ -270,6 +270,11 @@
                 if (typeof(T).IsAssignableFrom(typeof(Team)))
                 {
                     type = typeof(TeamsRepository);
+                }
+
+                if (typeof(T).IsAssignableFrom(typeof(TeamApplication)))
+                {
+                    type = typeof(TeamApplicationsRepository);
                 }
 
                 this.repositories.Add(typeof(T), Activator.CreateInstance(type, this.context));

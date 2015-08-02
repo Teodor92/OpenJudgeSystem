@@ -4,6 +4,7 @@
     using System.Linq;
     using System.Web.Mvc;
 
+    using OJS.Common;
     using OJS.Data;
     using OJS.Data.Models;
     using OJS.Web.Areas.Users.InputModels.Teams;
@@ -75,11 +76,46 @@
                 if (team == null)
                 {
                     this.ModelState.AddModelError("TeamId", "Няма такъв отбор");
+
+                    inputModel.TeamsDropdDownData = this.GetActiveTeamsDropDownData();
+                    return this.View(inputModel);
                 }
 
-                var existingApplication = this.Data.TeamApplications;
+                var userId = this.UserProfile.Id;
+
+                var userAlreadyInTeam = team.Members.Any(x => x.UserId == userId);
+                if (userAlreadyInTeam)
+                {
+                    this.ModelState.AddModelError("TeamId", "Вече сте в този отбор");
+
+                    inputModel.TeamsDropdDownData = this.GetActiveTeamsDropDownData();
+                    return this.View(inputModel);
+                }
+
+                var existingApplication = this.Data.TeamApplications.GetByTeamAndUserId(inputModel.TeamId, userId);
+                if (existingApplication.Any())
+                {
+                    this.ModelState.AddModelError("TeamId", "Вече сте кандидаствали за този отбор");
+
+                    inputModel.TeamsDropdDownData = this.GetActiveTeamsDropDownData();
+                    return this.View(inputModel);
+                }
+
+                var newApplication = new TeamApplication
+                {
+                    TeamId = inputModel.TeamId,
+                    RequesterId = userId,
+                    Status = ApplicationStatus.Pending
+                };
+
+                this.Data.TeamApplications.Add(newApplication);
+                this.Data.SaveChanges();
+
+                this.TempData[GlobalConstants.InfoMessage] = string.Format("Успешна заявление за включване в отбора {0}!", team.Name);
+                return this.RedirectToAction("Index", "Teams", new { area = "Users" });
             }
 
+            inputModel.TeamsDropdDownData = this.GetActiveTeamsDropDownData();
             return this.View(inputModel);
         }
 

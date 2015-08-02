@@ -1,12 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OJS.Data.Repositories
+﻿namespace OJS.Data.Repositories
 {
-    class TeamApplicationsRepository
+    using System.Linq;
+
+    using OJS.Data.Models;
+    using OJS.Data.Repositories.Base;
+    using OJS.Data.Repositories.Contracts;
+
+    public class TeamApplicationsRepository : DeletableEntityRepository<TeamApplication>, ITeamApplicationsRepository
     {
+        public TeamApplicationsRepository(IOjsDbContext context) 
+            : base(context)
+        {
+        }
+
+        public IQueryable<TeamApplication> GetByTeamAndUserId(int teamId, string userId)
+        {
+            return this.All()
+                .Where(x => x.TeamId == teamId && x.RequesterId == userId);
+        }
     }
 }

@@ -1094,6 +1094,7 @@
     <Content Include="Areas\Users\Views\Teams\Create.cshtml" />
     <Content Include="Areas\Users\Views\Teams\CreateApplication.cshtml" />
     <Content Include="Areas\Users\Views\Teams\Index.cshtml" />
+    <Content Include="Areas\Users\Views\Shared\DisplayTemplates\TeamApplicationViewModel.cshtml" />
     <None Include="Properties\PublishProfiles\bgcoder.com.pubxml" />
     <None Include="Properties\PublishProfiles\File System.pubxml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
@@ -1188,6 +1189,7 @@
     <Content Include="Views\Search\Index.cshtml" />
     <Content Include="Views\Shared\_Pagination.cshtml" />
     <Content Include="Views\Shared\_AdvancedSubmissionsGridPartial.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ApplicationStatus.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

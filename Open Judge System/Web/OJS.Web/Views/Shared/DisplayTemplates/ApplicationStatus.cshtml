@@ -1,0 +1,23 @@
+﻿@using OJS.Data.Models
+@model ApplicationStatus
+
+@switch (Model)
+{
+    case ApplicationStatus.Approved:
+        {
+            <span class="label label-danger">Одобрена</span>
+        }
+        break;
+
+    case ApplicationStatus.Pending:
+        {
+            <span class="label label-warning">В изчакване</span>
+        }
+        break;
+
+    case ApplicationStatus.Rejected:
+        {
+            <span class="label label-success">Отхвърлена</span>
+        }
+        break;
+}

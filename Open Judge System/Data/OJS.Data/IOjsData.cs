@@ -50,7 +50,7 @@
 
         ITeamsRepository Teams { get; }
 
-        IDeletableEntityRepository<TeamApplication> TeamApplications { get; }
+        ITeamApplicationsRepository TeamApplications { get; }
 
         IOjsDbContext Context { get; }
 

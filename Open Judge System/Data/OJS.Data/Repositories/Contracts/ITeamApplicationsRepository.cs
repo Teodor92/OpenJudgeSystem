@@ -2,10 +2,11 @@
 {
     using System.Linq;
 
+    using OJS.Data.Contracts;
     using OJS.Data.Models;
 
-    public interface ITeamApplicationsRepository
+    public interface ITeamApplicationsRepository : IDeletableEntityRepository<TeamApplication>
     {
-        IQueryable<TeamApplication> GetByTeamAndUserId(string teamId, string userId);
+        IQueryable<TeamApplication> GetByTeamAndUserId(int teamId, string userId);
     }
 }

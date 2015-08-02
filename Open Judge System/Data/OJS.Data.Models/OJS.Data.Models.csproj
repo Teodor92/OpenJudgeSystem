@@ -86,8 +86,10 @@
     <Compile Include="Tag.cs" />
     <Compile Include="Team.cs" />
     <Compile Include="TeamApplication.cs" />
+    <Compile Include="TeamRole.cs" />
     <Compile Include="Test.cs" />
     <Compile Include="TestRun.cs" />
+    <Compile Include="UserInTeam.cs" />
     <Compile Include="UserProfile.cs" />
     <Compile Include="UserSettings.cs" />
   </ItemGroup>

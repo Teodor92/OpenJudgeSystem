@@ -1,4 +1,6 @@
-﻿$(document).ready(function () {
+﻿// TODO: Segregate into modules
+
+$(document).ready(function () {
     kendo.culture("en-GB");
 
     if (getCookie("cookies-notification") != "ok") {
@@ -91,3 +93,38 @@ function calculateRemainingTimeOnClient(condownTimerContainerId, remainingTimeFo
 
     timer.start();
 }
+
+var OjsControls = OjsControls || {};
+
+OjsControls.ClientDisplayHelpers = (function() {
+
+    var api = {};
+
+    api.getYesNoStateTemplate = function(stateId) {
+        if (stateId === true) {
+            return '<span class="label label-success">Да</span>';
+        } else if (stateId === false) {
+            return '<span class="label label-info">Не</span>';
+        } else {
+            return 'Неизвестен';
+        }
+    };
+
+    api.getLinkTemplate = function(value) {
+        return '<a href="' + value + '" target="_blank" rel="nofollow">' + value + '</a>';
+    }
+
+    api.getEntryProcesedStateTemplate = function(stateId) {
+        if (stateId === 0) {
+            return '<h3><span class="label label-danger">Одобрена</span></h3>';
+        } else if (stateId === 1) {
+            return '<h3><span class="label label-warning">В изчакване</span></h3>';
+        } else if (stateId === 2) {
+            return '<h3><span class="label label-success">Отхвърлена</span></h3>';
+        } else {
+            return "Неизвестен";
+        }
+    }
+
+    return api;
+})();
