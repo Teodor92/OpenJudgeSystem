@@ -7,6 +7,8 @@
 
     public interface ITeamsRepository : IDeletableEntityRepository<Team>
     {
-        IQueryable<Team> ForUser(string userId);
+        IQueryable<Team> WithUser(string userId);
+
+        IQueryable<Team> ExcludingUser(string userId);
     }
 }

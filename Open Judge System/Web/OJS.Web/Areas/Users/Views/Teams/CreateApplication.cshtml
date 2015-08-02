@@ -1,8 +1,28 @@
-﻿@model dynamic
+﻿@model OJS.Web.Areas.Users.InputModels.Teams.TeamApplicationInputModel
 
 @{
-    ViewBag.Title = "title";
-    Layout = "_Layout";
+    ViewBag.Title = "Заявка за включване в отбор";
 }
 
-<h2>title</h2>
+<h2>@ViewBag.Title</h2>
+
+<div id="create-form" class="container">
+    @using (Html.BeginForm("Create", "Contests", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        @(Html.Kendo()
+                    .DropDownListFor(m => m.TeamId)
+                    .BindTo(Model.TeamsDropdDownData)
+                    .HtmlAttributes(new { @class = "pull-left full-kendo-editor" }))
+        <hr />
+        <div class="row">
+            <div class="editor-label col-xs-3">
+                <button type="submit" class="btn btn-primary pull-right">Създай</button>
+            </div>
+            <div class="editor-label col-xs-4">
+                <a href="/Administration/Contests/" class="btn btn-primary">Назад</a>
+            </div>
+        </div>
+    }
+</div>

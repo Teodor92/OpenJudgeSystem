@@ -1,12 +1,15 @@
 ﻿namespace OJS.Web.Areas.Users.Controllers
 {
+    using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
 
     using OJS.Data;
     using OJS.Data.Models;
+    using OJS.Web.Areas.Users.InputModels.Teams;
     using OJS.Web.Areas.Users.ViewModels.Teams;
     using OJS.Web.Controllers;
+    using OJS.Web.ViewModels.Shared;
 
     [Authorize]
     public class TeamsController : BaseController
@@ -16,7 +19,7 @@
         {
         }
 
-        public TeamsController(IOjsData data, UserProfile profile) 
+        public TeamsController(IOjsData data, UserProfile profile)
             : base(data, profile)
         {
         }
@@ -26,7 +29,7 @@
         {
             var userId = this.UserProfile.Id;
             var userTeams = this.Data.Teams
-                .ForUser(userId)
+                .WithUser(userId)
                 .Select(TeamViewModel.ViewModel)
                 .ToList();
 
@@ -54,7 +57,39 @@
         [HttpGet]
         public ActionResult CreateApplication()
         {
-            return this.View();
+            var inputModel = new TeamApplicationInputModel
+            {
+                TeamsDropdDownData = this.GetActiveTeamsDropDownData()
+            };
+
+            return this.View(inputModel);
+        }
+
+        [HttpPost]
+        public ActionResult CreateApplication(TeamApplicationInputModel inputModel)
+        {
+            if (this.ModelState.IsValid)
+            {
+                var team = this.Data.Teams.GetById(inputModel.TeamId);
+
+                if (team == null)
+                {
+                    this.ModelState.AddModelError("TeamId", "Няма такъв отбор");
+                }
+
+                var existingApplication = this.Data.TeamApplications;
+            }
+
+            return this.View(inputModel);
+        }
+
+        private IEnumerable<DropdownViewModel> GetActiveTeamsDropDownData()
+        {
+            var userId = this.UserProfile.Id;
+            return this.Data.Teams
+                .ExcludingUser(userId)
+                .Select(DropdownViewModel.FromTeam)
+                .ToList();
         }
     }
 }
