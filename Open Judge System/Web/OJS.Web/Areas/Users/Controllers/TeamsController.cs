@@ -2,7 +2,11 @@
 {
     using System.Collections.Generic;
     using System.Linq;
+    using System.Net;
     using System.Web.Mvc;
+
+    using Kendo.Mvc.Extensions;
+    using Kendo.Mvc.UI;
 
     using OJS.Common;
     using OJS.Data;
@@ -29,9 +33,11 @@
         public ActionResult Index()
         {
             var userId = this.UserProfile.Id;
+            var viewModelExpression = TeamViewModel.GetViewModelExpression(userId);
+
             var userTeams = this.Data.Teams
                 .WithUser(userId)
-                .Select(TeamViewModel.ViewModel)
+                .Select(viewModelExpression)
                 .ToList();
 
             var userApplication =
@@ -52,7 +58,39 @@
         [HttpGet]
         public ActionResult Create()
         {
-            return this.View();
+            var inputModel = new TeamInputModel
+            {
+                ActiveUsers = this.GetAllActiveUsersForMultiselect()
+            };
+
+            return this.View(inputModel);
+        }
+
+        [HttpPost]
+        public ActionResult Create(TeamInputModel inputModel)
+        {
+            if (this.ModelState.IsValid)
+            {
+                var team = new Team
+                {
+                    Name = inputModel.Name
+                };
+
+                // Add creator as teamLeader
+                team.Members.Add(new UserInTeam
+                {
+                    UserId = this.UserProfile.Id,
+                    Role = TeamRole.Leader
+                });
+
+                this.Data.Teams.Add(team);
+                this.Data.SaveChanges();
+
+                this.TempData[GlobalConstants.InfoMessage] = string.Format("Успешна заявка за създаване на отбор!");
+                return this.RedirectToAction("Index", "Teams", new { area = "Users" });
+            }
+
+            return this.View(inputModel);
         }
 
         [HttpGet]
@@ -119,12 +157,45 @@
             return this.View(inputModel);
         }
 
+        [HttpPost]
+        public ActionResult ReadTeams([DataSourceRequest]DataSourceRequest request)
+        {
+            var userId = this.UserProfile.Id;
+            var viewModelExpression = TeamViewModel.GetViewModelExpression(userId);
+            var teams = this.Data.Teams
+                .WithUser(userId)
+                .Select(viewModelExpression)
+                .ToList();
+            return this.Json(teams.ToDataSourceResult(request, this.ModelState));
+        }
+
+        [HttpPost]
+        public ActionResult ReadTeamApplications([DataSourceRequest]DataSourceRequest request)
+        {
+            var userId = this.UserProfile.Id;
+            var teamApplications =
+                this.Data.TeamApplications.All()
+                    .Where(x => x.RequesterId == userId)
+                    .Select(TeamApplicationViewModel.ViewModel)
+                    .ToList();
+
+            return this.Json(teamApplications.ToDataSourceResult(request, this.ModelState));
+        }
+
         private IEnumerable<DropdownViewModel> GetActiveTeamsDropDownData()
         {
             var userId = this.UserProfile.Id;
             return this.Data.Teams
                 .ExcludingUser(userId)
                 .Select(DropdownViewModel.FromTeam)
+                .ToList();
+        }
+
+        private IEnumerable<UserViewModel> GetAllActiveUsersForMultiselect()
+        {
+            return this.Data.Users
+                .All()
+                .Select(UserViewModel.ViewModel)
                 .ToList();
         }
     }

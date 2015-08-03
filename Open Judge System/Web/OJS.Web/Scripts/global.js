@@ -96,11 +96,11 @@ function calculateRemainingTimeOnClient(condownTimerContainerId, remainingTimeFo
 
 var OjsControls = OjsControls || {};
 
-OjsControls.ClientDisplayHelpers = (function() {
+OjsControls.ClientDisplayHelpers = (function () {
 
     var api = {};
 
-    api.getYesNoStateTemplate = function(stateId) {
+    api.getYesNoStateTemplate = function (stateId) {
         if (stateId === true) {
             return '<span class="label label-success">Да</span>';
         } else if (stateId === false) {
@@ -110,21 +110,34 @@ OjsControls.ClientDisplayHelpers = (function() {
         }
     };
 
-    api.getLinkTemplate = function(value) {
+    api.getLinkTemplate = function (value) {
         return '<a href="' + value + '" target="_blank" rel="nofollow">' + value + '</a>';
-    }
+    };
 
-    api.getEntryProcesedStateTemplate = function(stateId) {
+    api.getEntryProcesedStateTemplate = function (stateId) {
         if (stateId === 0) {
-            return '<h3><span class="label label-danger">Одобрена</span></h3>';
+            return '<span class="label label-danger">Одобрена</span>';
         } else if (stateId === 1) {
-            return '<h3><span class="label label-warning">В изчакване</span></h3>';
+            return '<span class="label label-warning">В изчакване</span>';
         } else if (stateId === 2) {
-            return '<h3><span class="label label-success">Отхвърлена</span></h3>';
+            return '<span class="label label-success">Отхвърлена</span>';
         } else {
             return "Неизвестен";
         }
-    }
+    };
+
+    api.getTeamRoleTemplate = function (roleId) {
+        switch (roleId) {
+            case 0:
+                return '<span class="label label-success">Лидер</span>';
+            case 1:
+                return '<span class="label label-primary">Офицер</span>';
+            case 2:
+                return '<span class="label label-info">Участник</span>';
+            default:
+                return "Неизвестенa";
+        }
+    };
 
     return api;
 })();

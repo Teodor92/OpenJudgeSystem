@@ -123,6 +123,9 @@
 
         #region Teams
 
+        public const int TeamNameMaxLength = 50;
+        public const int TeamNameMinLength = 3;
+
         public const int TeamApplicationCommentMaxLength = 6;
         public const int TeamApplicationCommentMinLength = 300;
 

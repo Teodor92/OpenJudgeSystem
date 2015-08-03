@@ -854,6 +854,7 @@
     <Compile Include="Areas\Users\ViewModels\Teams\TeamApplicationViewModel.cs" />
     <Compile Include="Areas\Users\ViewModels\Teams\TeamViewModel.cs" />
     <Compile Include="Areas\Users\ViewModels\Teams\UserTeamsViewModel.cs" />
+    <Compile Include="Areas\Users\ViewModels\Teams\UserViewModel.cs" />
     <Compile Include="Controllers\RedirectsController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="ViewModels\Account\ChangeUsernameViewModel.cs" />

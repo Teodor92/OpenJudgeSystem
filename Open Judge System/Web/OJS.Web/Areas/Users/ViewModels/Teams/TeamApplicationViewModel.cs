@@ -16,7 +16,8 @@
                     Id = a.Id,
                     TeamId = a.TeamId,
                     TeamName = a.Team.Name,
-                    Status = a.Status
+                    Status = (int)a.Status,
+                    CreatedOn = a.CreatedOn
                 };
             }
         }
@@ -27,6 +28,8 @@
 
         public string TeamName { get; set; }
 
-        public ApplicationStatus Status { get; set; }
+        public int Status { get; set; }
+
+        public DateTime CreatedOn { get; set; }
     }
 }
