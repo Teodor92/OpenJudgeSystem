@@ -18,5 +18,11 @@
             return this.All()
                 .Where(x => x.TeamId == teamId && x.RequesterId == userId);
         }
+
+        public bool Any(string userId)
+        {
+            return this.All()
+                .Any(x => x.RequesterId == userId);
+        }
     }
 }

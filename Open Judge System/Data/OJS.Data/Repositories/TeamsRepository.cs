@@ -24,5 +24,11 @@
             return this.All()
                 .Where(x => x.Members.All(y => y.UserId != userId));
         }
+
+        public bool Any(string userId)
+        {
+            return this.All()
+                .Any(x => x.Members.Any(y => y.UserId == userId));
+        }
     }
 }

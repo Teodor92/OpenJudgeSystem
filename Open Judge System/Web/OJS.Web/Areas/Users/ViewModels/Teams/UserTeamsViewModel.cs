@@ -4,14 +4,8 @@
 
     public class UserTeamsViewModel
     {
-        public UserTeamsViewModel()
-        {
-            this.Teams = new List<TeamViewModel>();
-            this.Applications = new List<TeamApplicationViewModel>();
-        }
+        public bool UserHasTeams { get; set; }
 
-        public IEnumerable<TeamViewModel> Teams { get; set; }
-
-        public IEnumerable<TeamApplicationViewModel> Applications { get; set; }
+        public bool UserHasTeamApplications { get; set; }
     }
 }

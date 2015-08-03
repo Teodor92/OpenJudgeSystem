@@ -8,5 +8,11 @@
     public interface ITeamApplicationsRepository : IDeletableEntityRepository<TeamApplication>
     {
         IQueryable<TeamApplication> GetByTeamAndUserId(int teamId, string userId);
+
+        /// <summary>
+        /// Checks if a spesific user has TeamApplications
+        /// </summary>
+        /// <param name="userId">The id of the user</param>
+        bool Any(string userId);
     }
 }

@@ -33,23 +33,10 @@
         public ActionResult Index()
         {
             var userId = this.UserProfile.Id;
-            var viewModelExpression = TeamViewModel.GetViewModelExpression(userId);
-
-            var userTeams = this.Data.Teams
-                .WithUser(userId)
-                .Select(viewModelExpression)
-                .ToList();
-
-            var userApplication =
-                this.Data.TeamApplications.All()
-                    .Where(x => x.RequesterId == userId)
-                    .Select(TeamApplicationViewModel.ViewModel)
-                    .ToList();
-
             var viewModel = new UserTeamsViewModel
             {
-                Teams = userTeams,
-                Applications = userApplication
+                UserHasTeams = this.Data.Teams.Any(userId),
+                UserHasTeamApplications = this.Data.TeamApplications.Any(userId)
             };
 
             return this.View(viewModel);
