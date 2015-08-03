@@ -7,6 +7,7 @@
 
     using OJS.Common.Extensions;
     using OJS.Data.Models;
+    using OJS.Data.Models.Teams;
 
     public class DropdownViewModel
     {

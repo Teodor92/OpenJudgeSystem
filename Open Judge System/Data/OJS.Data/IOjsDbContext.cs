@@ -5,6 +5,7 @@
     using System.Data.Entity.Infrastructure;
 
     using OJS.Data.Models;
+    using OJS.Data.Models.Teams;
 
     public interface IOjsDbContext : IDisposable
     {

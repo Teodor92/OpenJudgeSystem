@@ -4,6 +4,7 @@
     using System.ComponentModel.DataAnnotations;
 
     using OJS.Data.Contracts;
+    using OJS.Data.Models.Teams;
 
     public class Participant : AuditInfo
     {

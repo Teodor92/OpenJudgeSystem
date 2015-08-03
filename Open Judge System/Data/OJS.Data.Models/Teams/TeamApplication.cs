@@ -1,4 +1,4 @@
-﻿namespace OJS.Data.Models
+﻿namespace OJS.Data.Models.Teams
 {
     using System.ComponentModel.DataAnnotations;
 

@@ -11,6 +11,7 @@
     using OJS.Data.Contracts;
     using OJS.Data.Contracts.CodeFirstConventions;
     using OJS.Data.Models;
+    using OJS.Data.Models.Teams;
 
     using User = OJS.Data.Models.UserProfile;
 

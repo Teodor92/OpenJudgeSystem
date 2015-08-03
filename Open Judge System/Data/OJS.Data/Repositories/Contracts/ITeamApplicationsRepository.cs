@@ -4,6 +4,7 @@
 
     using OJS.Data.Contracts;
     using OJS.Data.Models;
+    using OJS.Data.Models.Teams;
 
     public interface ITeamApplicationsRepository : IDeletableEntityRepository<TeamApplication>
     {

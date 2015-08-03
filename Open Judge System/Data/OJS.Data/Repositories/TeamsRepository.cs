@@ -3,6 +3,7 @@
     using System.Linq;
 
     using OJS.Data.Models;
+    using OJS.Data.Models.Teams;
     using OJS.Data.Repositories.Base;
     using OJS.Data.Repositories.Contracts;
 

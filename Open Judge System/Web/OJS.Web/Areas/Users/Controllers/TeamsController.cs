@@ -11,6 +11,7 @@
     using OJS.Common;
     using OJS.Data;
     using OJS.Data.Models;
+    using OJS.Data.Models.Teams;
     using OJS.Web.Areas.Users.InputModels.Teams;
     using OJS.Web.Areas.Users.ViewModels.Teams;
     using OJS.Web.Controllers;

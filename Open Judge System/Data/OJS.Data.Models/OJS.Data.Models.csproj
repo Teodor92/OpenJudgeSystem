@@ -84,9 +84,9 @@
     <Compile Include="Problem.cs" />
     <Compile Include="Submission.cs" />
     <Compile Include="Tag.cs" />
-    <Compile Include="Team.cs" />
-    <Compile Include="TeamApplication.cs" />
-    <Compile Include="TeamRole.cs" />
+    <Compile Include="Teams\Team.cs" />
+    <Compile Include="Teams\TeamApplication.cs" />
+    <Compile Include="Teams\TeamRole.cs" />
     <Compile Include="Test.cs" />
     <Compile Include="TestRun.cs" />
     <Compile Include="UserInTeam.cs" />

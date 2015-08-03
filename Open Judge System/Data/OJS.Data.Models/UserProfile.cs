@@ -10,6 +10,7 @@
 
     using OJS.Data.Contracts;
     using OJS.Data.Contracts.DataAnnotations;
+    using OJS.Data.Models.Teams;
 
     public class UserProfile : IdentityUser, IDeletableEntity, IAuditInfo
     {

@@ -5,6 +5,7 @@
     using System.Linq.Expressions;
 
     using OJS.Data.Models;
+    using OJS.Data.Models.Teams;
 
     public class TeamViewModel
     {

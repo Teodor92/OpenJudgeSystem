@@ -7,6 +7,7 @@
 
     using OJS.Data.Contracts;
     using OJS.Data.Models;
+    using OJS.Data.Models.Teams;
     using OJS.Data.Repositories;
     using OJS.Data.Repositories.Base;
     using OJS.Data.Repositories.Contracts;
