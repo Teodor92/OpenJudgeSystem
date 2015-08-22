@@ -3,63 +3,191 @@
 }
 
 @*<h1>@ViewBag.Title</h1>
-    @Html.ActionLink("Новини", GlobalConstants.Index, "News", new { area = "Administration" }, null)<br />
-    @Html.ActionLink("Задачи", GlobalConstants.Index, "Problems", new { area = "Administration" }, null)<br />
-    @Html.ActionLink("Състезания", GlobalConstants.Index, "Contests", new { area = "Administration" }, null)<br />
-    @Html.ActionLink("Категории", GlobalConstants.Index, "ContestCategories", new { area = "Administration" }, null)<br />
-    @Html.ActionLink("Обратна връзка", GlobalConstants.Index, "Feedback", new { area = "Administration" }, null)<br />
-    @Html.ActionLink("Йерархия на категориите", "Hierarchy", "ContestCategories", new { area = "Administration" }, null)<br />
-    @Html.ActionLink("Тестови файлове", GlobalConstants.Index, "Tests", new { area = "Administration" }, null)<br />
-    @Html.ActionLink("Потребители", GlobalConstants.Index, "Users", new { area = "Administration" }, null)<br />
-    @Html.ActionLink("Решения", GlobalConstants.Index, "Submissions", new { area = "Administration" }, null)<br />
-    @Html.ActionLink("Роли", GlobalConstants.Index, "Roles", new { area = "Administration" }, null)<br />
-    @Html.ActionLink("Настройки", GlobalConstants.Index, "Settings", new { area = "Administration" }, null)<br />*@
+    --@Html.ActionLink("Новини", GlobalConstants.Index, "News", new { area = "Administration" }, null)<br />
+    --@Html.ActionLink("Задачи", GlobalConstants.Index, "Problems", new { area = "Administration" }, null)<br />
+    --@Html.ActionLink("Състезания", GlobalConstants.Index, "Contests", new { area = "Administration" }, null)<br />
+    --@Html.ActionLink("Категории", GlobalConstants.Index, "ContestCategories", new { area = "Administration" }, null)<br />
+    --@Html.ActionLink("Обратна връзка", GlobalConstants.Index, "Feedback", new { area = "Administration" }, null)<br />
+    --@Html.ActionLink("Йерархия на категориите", "Hierarchy", "ContestCategories", new { area = "Administration" }, null)<br />
+    --@Html.ActionLink("Тестови файлове", GlobalConstants.Index, "Tests", new { area = "Administration" }, null)<br />
+    --@Html.ActionLink("Потребители", GlobalConstants.Index, "Users", new { area = "Administration" }, null)<br />
+    --@Html.ActionLink("Решения", GlobalConstants.Index, "Submissions", new { area = "Administration" }, null)<br />
+    --@Html.ActionLink("Роли", GlobalConstants.Index, "Roles", new { area = "Administration" }, null)<br />
+    --@Html.ActionLink("Настройки", GlobalConstants.Index, "Settings", new { area = "Administration" }, null)<br />*@
 
-<div id="wrapper">
-    <!-- Sidebar -->
-    <div id="sidebar-wrapper">
-        <ul class="sidebar-nav">
-            <li class="sidebar-brand">
-                <a href="#">
-                    Start Bootstrap
-                </a>
-            </li>
-            <li>
-                <a href="#">Dashboard</a>
-            </li>
-            <li>
-                <a href="#">Shortcuts</a>
-            </li>
-            <li>
-                <a href="#">Overview</a>
-            </li>
-            <li>
-                <a href="#">Events</a>
-            </li>
-            <li>
-                <a href="#">About</a>
-            </li>
-            <li>
-                <a href="#">Services</a>
-            </li>
-            <li>
-                <a href="#">Contact</a>
-            </li>
-        </ul>
-    </div>
-    <!-- /#sidebar-wrapper -->
-    <!-- Page Content -->
-    <div id="page-content-wrapper">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1>Simple Sidebar</h1>
-                    <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
-                    <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
-                    <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
-                </div>
+<h2>Състезания</h2>
+<hr />
+
+<div class="row">
+    <div class="col-sm-3">
+        <a href="@Url.Action(GlobalConstants.Index, "Contests", new { area = "Administration" })">
+            <div class="tile purple">
+                <h3 class="title"><span class="glyphicon glyphicon-book"></span> Състезания</h3>
+                <p>Състезания</p>
             </div>
-        </div>
+        </a>
     </div>
-    <!-- /#page-content-wrapper -->
+    <div class="col-sm-3">
+        <a href="@Url.Action(GlobalConstants.Index, "ContestCategories", new { area = "Administration" })">
+            <div class="tile red">
+                <h3 class="title"><span class="glyphicon glyphicon-envelope"></span> Категории</h3>
+                <p>Категории</p>
+            </div>
+        </a>
+    </div>
+    <div class="col-sm-3">
+        <a href="@Url.Action("Hierarchy", "ContestCategories", new { area = "Administration" })">
+            <div class="tile orange">
+                <h3 class="title">
+                    <span class=" glyphicon glyphicon-ok"></span> Йерархия на категориите
+                </h3>
+                <p>Йерархия на категориите</p>
+            </div>
+        </a>
+    </div>
+    <div class="col-sm-3">
+        <a href="@Url.Action(GlobalConstants.Index, "Participants", new { area = "Administration" })">
+            <div class="tile green">
+                <h3 class="title">
+                    <span class="glyphicon glyphicon-exclamation-sign"></span> Участници
+                </h3>
+                <p>Участници</p>
+            </div>
+        </a>
+    </div>
+</div>
+
+
+<h2>Задачи</h2>
+<hr />
+
+<div class="row">
+    <div class="col-sm-3">
+        <a href="@Url.Action(GlobalConstants.Index, "Problems", new { area = "Administration" })">
+            <div class="tile green">
+                <h3 class="title">
+                    <span class="glyphicon glyphicon-exclamation-sign"></span> Задачи
+                </h3>
+                <p>Задачи</p>
+            </div>
+        </a>
+    </div>
+    <div class="col-sm-3">
+        <a href="@Url.Action(GlobalConstants.Index, "Tests", new { area = "Administration" })">
+            <div class="tile blue">
+                <h3 class="title">
+                    <span class="glyphicon glyphicon-lamp"></span> Тестови файлове
+                </h3>
+                <p>Тестови файлове</p>
+            </div>
+        </a>
+    </div>
+</div>
+
+<h2>Потребители</h2>
+<hr />
+
+<div class="row">
+    <div class="col-sm-3">
+        <a href="@Url.Action(GlobalConstants.Index, "Users", new { area = "Administration" })">
+            <div class="tile green">
+                <h3 class="title">
+                    <span class="glyphicon glyphicon-exclamation-sign"></span> Потребители
+                </h3>
+                <p>Потребители</p>
+            </div>
+        </a>
+    </div>
+    <div class="col-sm-3">
+        <a href="@Url.Action(GlobalConstants.Index, "Submissions", new { area = "Administration" })">
+            <div class="tile blue">
+                <h3 class="title">
+                    <span class="glyphicon glyphicon-lamp"></span> Решения
+                </h3>
+                <p>Решения</p>
+            </div>
+        </a>
+    </div>
+    <div class="col-sm-3">
+        <a href="@Url.Action(GlobalConstants.Index, "Roles", new { area = "Administration" })">
+            <div class="tile blue">
+                <h3 class="title">
+                    <span class="glyphicon glyphicon-lamp"></span> Роли
+                </h3>
+                <p>Роли</p>
+            </div>
+        </a>
+    </div>
+</div>
+
+<h2>Други</h2>
+<hr />
+
+<div class="row">
+    <div class="col-sm-3">
+        <a href="@Url.Action(GlobalConstants.Index, "News", new { area = "Administration" })">
+            <div class="tile green">
+                <h3 class="title">
+                    <span class="glyphicon glyphicon-exclamation-sign"></span> Новини
+                </h3>
+                <p>Новини</p>
+            </div>
+        </a>
+    </div>
+
+    <div class="col-sm-3">
+        <a href="@Url.Action(GlobalConstants.Index, "Feedback", new { area = "Administration" })">
+            <div class="tile blue">
+                <h3 class="title">
+                    <span class="glyphicon glyphicon-lamp"></span> Обратна връзка
+                </h3>
+                <p>Обратна връзка</p>
+            </div>
+        </a>
+    </div>
+
+    <div class="col-sm-3">
+        <a href="@Url.Action(GlobalConstants.Index, "Checkers", new { area = "Administration" })">
+            <div class="tile blue">
+                <h3 class="title">
+                    <span class="glyphicon glyphicon-lamp"></span> Чекери
+                </h3>
+                <p>Чекери</p>
+            </div>
+        </a>
+    </div>
+
+    <div class="col-sm-3">
+        <a href="@Url.Action(GlobalConstants.Index, "SubmissionTypes", new { area = "Administration" })">
+            <div class="tile blue">
+                <h3 class="title">
+                    <span class="glyphicon glyphicon-lamp"></span> Типове решения
+                </h3>
+                <p>Типове решения</p>
+            </div>
+        </a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-3">
+        <a href="@Url.Action(GlobalConstants.Index, "Settings", new { area = "Administration" })">
+            <div class="tile blue">
+                <h3 class="title">
+                    <span class="glyphicon glyphicon-lamp"></span> Настройки
+                </h3>
+                <p>Настройки</p>
+            </div>
+        </a>
+    </div>
+
+    <div class="col-sm-3">
+        <a href="@Url.Action(GlobalConstants.Index, "AccessLogs", new { area = "Administration" })">
+            <div class="tile blue">
+                <h3 class="title">
+                    <span class="glyphicon glyphicon-lamp"></span> Логове
+                </h3>
+                <p>Логове</p>
+            </div>
+        </a>
+    </div>
 </div>

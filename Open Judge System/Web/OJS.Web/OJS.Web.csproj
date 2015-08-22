@@ -1486,10 +1486,13 @@
     <Compile Include="Areas\Administration\Controllers\SubmissionTypesController.cs" />
     <Compile Include="Areas\Administration\Controllers\TestsController.cs" />
     <Compile Include="Areas\Administration\Controllers\UsersController.cs" />
-    <Compile Include="Areas\Administration\Providers\Common\BaseNewsProvider.cs" />
-    <Compile Include="Areas\Administration\Providers\Contracts\INewsProvider.cs" />
-    <Compile Include="Areas\Administration\Providers\InfoManNewsProvider.cs" />
-    <Compile Include="Areas\Administration\Providers\InfosNewsProvider.cs" />
+    <Compile Include="Areas\Administration\Providers\Navigation\Base\BaseInformationProvider.cs" />
+    <Compile Include="Areas\Administration\Providers\Navigation\Contracts\IInformationProvider.cs" />
+    <Compile Include="Areas\Administration\Providers\Navigation\UsersInformationProvider.cs" />
+    <Compile Include="Areas\Administration\Providers\News\Common\BaseNewsProvider.cs" />
+    <Compile Include="Areas\Administration\Providers\News\Contracts\INewsProvider.cs" />
+    <Compile Include="Areas\Administration\Providers\News\InfoManNewsProvider.cs" />
+    <Compile Include="Areas\Administration\Providers\News\InfosNewsProvider.cs" />
     <Compile Include="Areas\Administration\ViewModels\AccessLogs\AccessLogGridViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\AntiCheat\SubmissionSimilarityViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\AntiCheat\AntiCheatByIpAdministrationViewModel.cs" />
@@ -1499,6 +1502,7 @@
     <Compile Include="Areas\Administration\ViewModels\ContestQuestionAnswer\ContestQuestionAnswerViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\ContestQuestion\ContestQuestionViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\Contest\ContestAdministrationViewModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\Navigation\NavigationItem.cs" />
     <Compile Include="Areas\Administration\ViewModels\Participant\ContestViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\Participant\ParticipantAdministrationViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\Participant\ParticipantAnswerViewModel.cs" />
@@ -1611,6 +1615,8 @@
     <Compile Include="ViewModels\TestRun\TestRunViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap\extentions\bootstrap-tiles.css" />
+    <Content Include="Content\bootstrap\Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\bootstrap\themes\bootstrap-theme-cosmo.css" />
     <Content Include="Content\bootstrap\themes\bootstrap-theme-cosmo.min.css" />
     <Content Include="Content\bootstrap\themes\bootstrap-theme-cyborg.css" />
@@ -1805,6 +1811,9 @@
     <Content Include="Areas\Administration\Views\SubmissionTypes\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Enum.cshtml" />
     <None Include="Areas\Administration\Views\AccessLogs\Index.cshtml" />
+    <Content Include="Content\bootstrap\Fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap\Fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\bootstrap\Fonts\glyphicons-halflings-regular.woff" />
     <None Include="Properties\PublishProfiles\bgcoder.com.pubxml" />
     <None Include="Properties\PublishProfiles\File System.pubxml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />

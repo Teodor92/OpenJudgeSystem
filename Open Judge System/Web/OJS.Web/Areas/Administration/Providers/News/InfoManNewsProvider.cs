@@ -1,4 +1,4 @@
-﻿namespace OJS.Web.Areas.Administration.Providers
+﻿namespace OJS.Web.Areas.Administration.Providers.News
 {
     using System;
     using System.Collections.Generic;
@@ -6,7 +6,7 @@
     using System.Web;
 
     using OJS.Data.Models;
-    using OJS.Web.Areas.Administration.Providers.Common;
+    using OJS.Web.Areas.Administration.Providers.News.Common;
 
     public class InfoManNewsProvider : BaseNewsProvider
     {

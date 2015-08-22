@@ -1,4 +1,4 @@
-﻿namespace OJS.Web.Areas.Administration.Providers.Contracts
+﻿namespace OJS.Web.Areas.Administration.Providers.News.Contracts
 {
     using System.Collections.Generic;
 

@@ -1,4 +1,4 @@
-﻿namespace OJS.Web.Areas.Administration.Providers.Common
+﻿namespace OJS.Web.Areas.Administration.Providers.News.Common
 {
     using System.Collections.Generic;
     using System.IO;
@@ -8,7 +8,7 @@
     using HtmlAgilityPack;
 
     using OJS.Data.Models;
-    using OJS.Web.Areas.Administration.Providers.Contracts;
+    using OJS.Web.Areas.Administration.Providers.News.Contracts;
 
     public abstract class BaseNewsProvider : INewsProvider
     {
