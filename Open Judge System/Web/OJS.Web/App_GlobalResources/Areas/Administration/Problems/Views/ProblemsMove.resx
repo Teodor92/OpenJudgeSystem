@@ -117,46 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Invalid_contest" xml:space="preserve">
-    <value>Invalid contest</value>
-  </data>
-  <data name="Invalid_problem" xml:space="preserve">
-    <value>Invalid problem</value>
-  </data>
-  <data name="Invalid_tests" xml:space="preserve">
-    <value>Invalid tests</value>
-  </data>
-  <data name="Invalid_user" xml:space="preserve">
-    <value>Invalid user</value>
-  </data>
-  <data name="Must_be_zip_file" xml:space="preserve">
-    <value>Uploaded file must be in .ZIP format.</value>
-  </data>
-  <data name="Problems_deleted" xml:space="preserve">
-    <value>Problems deleted successfully.</value>
-  </data>
-  <data name="Problem_added" xml:space="preserve">
-    <value>Problem added successfully.</value>
-  </data>
-  <data name="Problem_deleted" xml:space="preserve">
-    <value>Problem deleted successfully.</value>
-  </data>
-  <data name="Problem_edited" xml:space="preserve">
-    <value>Problem edited successfully.</value>
-  </data>
-  <data name="Problem_retested" xml:space="preserve">
-    <value>Problem retested successfully.</value>
-  </data>
-  <data name="Resources_not_complete" xml:space="preserve">
-    <value>Resources must be fully entered.</value>
-  </data>
-  <data name="Problem_not_found" xml:space="preserve">
-    <value>The problem was not found!</value>
-  </data>
-  <data name="Select_one_submission_type" xml:space="preserve">
-    <value>Choose at least one submission type!</value>
-  </data>
-  <data name="Problem_moved" xml:space="preserve">
-    <value>Problem moved succussfully.</value>
+  <data name="Page_title" xml:space="preserve">
+    <value>Move problem</value>
   </data>
 </root>

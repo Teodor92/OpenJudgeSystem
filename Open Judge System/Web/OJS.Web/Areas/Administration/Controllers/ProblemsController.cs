@@ -575,6 +575,31 @@
         }
 
         [HttpGet]
+        public ActionResult Move(int problemId)
+        {
+            var problem = this.Data.Problems
+                .All()
+                .Where(prob => prob.Id == problemId)
+                .Select(ProblemViewModel.FromProblem)
+                .FirstOrDefault(prob => prob.Id == problemId);
+
+            if (problem == null)
+            {
+                this.TempData.AddDangerMessage(GlobalResource.Invalid_problem);
+                return this.RedirectToAction(GlobalConstants.Index);
+            }
+
+            if (!this.CheckIfUserHasProblemPermissions(problem.Id))
+            {
+                this.TempData[GlobalConstants.DangerMessage] = "Нямате привилегиите за това действие";
+                return this.RedirectToAction("Index", "Contests", new { area = "Administration" });
+            }
+
+            this.ViewBag.ProblemAction = "Move";
+            return this.View(problem);
+        }
+
+        [HttpGet]
         public ActionResult GetSubmissions(int id)
         {
             if (!this.CheckIfUserHasProblemPermissions(id))

@@ -133,6 +133,15 @@ namespace Resources.Areas.Administration.Problems {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Problem moved succussfully..
+        /// </summary>
+        public static string Problem_moved {
+            get {
+                return ResourceManager.GetString("Problem_moved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The problem was not found!.
         /// </summary>
         public static string Problem_not_found {
