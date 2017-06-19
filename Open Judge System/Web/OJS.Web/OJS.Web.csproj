@@ -841,6 +841,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ProblemsIndex.resx</DependentUpon>
     </Compile>
+    <Compile Include="App_GlobalResources\Areas\Administration\Problems\Views\ProblemsMove.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProblemsMove.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_GlobalResources\Areas\Administration\Resources\ResourcesControllers.bg.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -2343,6 +2348,10 @@
       <LastGenOutput>ProblemsIndex.bg.designer.cs</LastGenOutput>
       <CustomToolNamespace>Resources.Areas.Administration.Problems.Views</CustomToolNamespace>
     </EmbeddedResource>
+    <Content Include="App_GlobalResources\Areas\Administration\Problems\Views\ProblemsMove.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>ProblemsMove.Designer.cs</LastGenOutput>
+    </Content>
     <EmbeddedResource Include="App_GlobalResources\Areas\Administration\Resources\ResourcesControllers.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ResourcesControllers.Designer.cs</LastGenOutput>
