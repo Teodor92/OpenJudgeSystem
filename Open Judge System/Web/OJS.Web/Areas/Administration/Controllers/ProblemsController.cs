@@ -580,26 +580,26 @@
         }
 
         [HttpGet]
-        public ActionResult Move(int problemId)
+        public ActionResult Move(int id)
         {
-            var problem = this.Data.Problems
-                .All()
-                .Where(prob => prob.Id == problemId)
-                .Select(ProblemViewModel.FromProblem)
-                .FirstOrDefault(prob => prob.Id == problemId);
+            //var problem = this.Data.Problems
+            //    .All()
+            //    .Where(prob => prob.Id == problemId)
+            //    .Select(ProblemViewModel.FromProblem)
+            //    .FirstOrDefault(prob => prob.Id == problemId);
 
-            if (problem == null)
-            {
-                this.TempData.AddDangerMessage(GlobalResource.Invalid_problem);
-                return this.RedirectToAction(GlobalConstants.Index);
-            }
+            //if (problem == null)
+            //{
+            //    this.TempData.AddDangerMessage(GlobalResource.Invalid_problem);
+            //    return this.RedirectToAction(GlobalConstants.Index);
+            //}
 
-            if (!this.CheckIfUserHasProblemPermissions(problem.Id))
-            {
-                this.TempData[GlobalConstants.DangerMessage] = "Нямате привилегиите за това действие";
-                return this.RedirectToAction("Index", "Contests", new { area = "Administration" });
-            }
-
+            //if (!this.CheckIfUserHasProblemPermissions(problem.Id))
+            //{
+            //    this.TempData[GlobalConstants.DangerMessage] = "Нямате привилегиите за това действие";
+            //    return this.RedirectToAction("Index", "Contests", new { area = "Administration" });
+            //}
+            var problem = new MoveProblemViewModel();
             this.ViewBag.ProblemAction = "Move";
             return this.View(problem);
         }

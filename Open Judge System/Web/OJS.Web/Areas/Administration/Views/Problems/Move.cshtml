@@ -1,13 +1,10 @@
 ﻿@using Resource = OJS.Web.App_GlobalResources.Areas.Administration.Problems.Views.ProblemsMove
-@model OJS.Web.Areas.Administration.ViewModels.Problem.ProblemViewModel
+@model OJS.Web.Areas.Administration.ViewModels.Problem.MoveProblemViewModel
 
-@{
-    ViewBag.Title = Resource.Page_title;
-}
 
 <h2>@ViewBag.Title</h2>
 
-@Html.Partial("_SubmissionForm", Model)
+@Html.Partial("_MoveProblemPartial", Model)
 
 @section scripts{
     @Scripts.Render("~/bundles/jqueryval")

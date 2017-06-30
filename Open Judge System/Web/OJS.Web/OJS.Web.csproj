@@ -761,6 +761,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ProblemResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="App_GlobalResources\Areas\Administration\Problems\Views\EditorTemplates\ProblemMoveEditorTemplate.designer.cs">
+      <DependentUpon>ProblemMoveEditorTemplate.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Areas\Administration\Problems\Views\EditorTemplates\ProblemMoveEditorTemplate.bg.designer.cs">
+      <DependentUpon>ProblemMoveEditorTemplate.bg.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="App_GlobalResources\Areas\Administration\Problems\Views\EditorTemplates\SubmissionTypeViewModel.bg.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1580,6 +1590,7 @@
     <Compile Include="Areas\Administration\ViewModels\News\NewsAdministrationViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\ProblemResource\ProblemResourceGridViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\ProblemResource\ProblemResourceViewModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\Problem\MoveProblemViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\Problem\ProblemViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\Contest\ShortContestAdministrationViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\Roles\RoleAdministrationViewModel.cs" />
@@ -1930,6 +1941,9 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Areas\Administration\Views\Problems\EditorTemplates\SubmissionTypeViewModel.cshtml" />
     <Content Include="Areas\Administration\Views\Problems\Move.cshtml" />
+    <Content Include="Areas\Administration\Views\Problems\_MoveProblemPartial.cshtml" />
+    <Content Include="Areas\Administration\Views\Problems\EditorTemplates\ContestsInCategoryDropDown.cshtml" />
+    <Content Include="Areas\Administration\Views\Problems\EditorTemplates\CategoryComboBox.cshtml" />
     <None Include="Properties\PublishProfiles\File System.pubxml" />
     <None Include="Properties\PublishProfiles\Suls Judge System.pubxml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
@@ -2266,6 +2280,16 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ProblemResources.bg.designer.cs</LastGenOutput>
       <CustomToolNamespace>Resources.Areas.Administration.Problems.ViewModels</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\Areas\Administration\Problems\Views\EditorTemplates\ProblemMoveEditorTemplate.bg.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ProblemMoveEditorTemplate.bg.designer.cs</LastGenOutput>
+      <CustomToolNamespace>Resources.Areas.Administration.Problems.Views.EditorTemplates</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\Areas\Administration\Problems\Views\EditorTemplates\ProblemMoveEditorTemplate.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ProblemMoveEditorTemplate.designer.cs</LastGenOutput>
+      <CustomToolNamespace>Resources.Areas.Administration.Problems.Views.EditorTemplates</CustomToolNamespace>
     </EmbeddedResource>
     <EmbeddedResource Include="App_GlobalResources\Areas\Administration\Problems\Views\Partials\ProblemsPartials.bg.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
