@@ -22,7 +22,7 @@
         public Participant(int contestId, string userId, bool isOfficial)
             : this()
         {
-            this.ContestId = contestId;
+            this.ContestInstanceId = contestId;
             this.UserId = userId;
             this.IsOfficial = isOfficial;
         }
@@ -32,7 +32,7 @@
 
         public int OldId { get; set; }
 
-        public int ContestId { get; set; }
+        public int ContestInstanceId { get; set; }
 
         public string UserId { get; set; }
 
@@ -40,7 +40,7 @@
         public bool IsOfficial { get; set; }
 
         [Required]
-        public virtual Contest Contest { get; set; }
+        public virtual ContestInstance Contest { get; set; }
 
         public virtual UserProfile User { get; set; }
 

@@ -12,7 +12,7 @@
     public class ShortContestAdministrationViewModel
     {
         [ExcludeFromExcel]
-        public static Expression<Func<Contest, ShortContestAdministrationViewModel>> FromContest
+        public static Expression<Func<ContestInstance, ShortContestAdministrationViewModel>> FromContest
         {
             get
             {

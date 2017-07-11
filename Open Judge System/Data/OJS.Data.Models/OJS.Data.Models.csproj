@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Checker.cs" />
+    <Compile Include="ContestInstance.cs" />
     <Compile Include="ContestIp.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="Ip.cs" />

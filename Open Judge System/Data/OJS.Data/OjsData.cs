@@ -27,9 +27,11 @@
             this.context = context;
         }
 
-        public IContestsRepository Contests => (ContestsRepository)this.GetRepository<Contest>();
+        public IContestInstancesRepository ContestInstances => (ContestInstancesRepository)this.GetRepository<ContestInstance>();
 
         public IDeletableEntityRepository<Problem> Problems => this.GetDeletableEntityRepository<Problem>();
+
+        public IDeletableEntityRepository<Contest> Contests => this.GetDeletableEntityRepository<Contest>();
 
         public ITestRepository Tests => (TestRepository)this.GetRepository<Test>();
 
@@ -108,9 +110,9 @@
             {
                 var type = typeof(GenericRepository<T>);
 
-                if (typeof(T).IsAssignableFrom(typeof(Contest)))
+                if (typeof(T).IsAssignableFrom(typeof(ContestInstance)))
                 {
-                    type = typeof(ContestsRepository);
+                    type = typeof(ContestInstancesRepository);
                 }
 
                 if (typeof(T).IsAssignableFrom(typeof(Submission)))

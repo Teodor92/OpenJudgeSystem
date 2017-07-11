@@ -46,7 +46,7 @@
             var hasPermissions = this.CheckIfUserHasProblemPermissions(testInfo.ProblemId);
             var isParticipant = this.Data.Participants
                 .All()
-                .Any(p => p.UserId == this.UserProfile.Id && p.ContestId == testInfo.ContestId);
+                .Any(p => p.UserId == this.UserProfile.Id && p.ContestInstanceId == testInfo.ContestId);
 
             var isUnofficialParticipant = this.Data.Submissions
                 .All()

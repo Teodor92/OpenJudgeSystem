@@ -79,7 +79,7 @@
 
             var participants = this.Data.Participants
                 .All()
-                .Where(p => p.ContestId == id)
+                .Where(p => p.ContestInstanceId == id)
                 .Select(ViewModelType.ViewModel);
 
             var serializationSettings = new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore };
@@ -96,7 +96,7 @@
                 return this.RedirectToAction("Index", "Contests", new { area = "Administration" });
             }
 
-            var contest = this.Data.Contests.All().FirstOrDefault(c => c.Id == model.ContestId);
+            var contest = this.Data.ContestInstances.All().FirstOrDefault(c => c.Id == model.ContestId);
             var user = this.Data.Users.All().FirstOrDefault(u => u.Id == model.UserId);
 
             if (contest == null || user == null)

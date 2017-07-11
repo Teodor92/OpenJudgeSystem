@@ -66,7 +66,7 @@
         /// <param name="contest">Contest to validate.</param>
         /// <param name="official">A flag checking if the contest will be practiced or competed</param>
         [NonAction]
-        public void ValidateContest(Contest contest, bool official)
+        public void ValidateContest(ContestInstance contest, bool official)
         {
             if (contest == null ||
                 contest.IsDeleted ||
@@ -100,7 +100,7 @@
         [Authorize]
         public ActionResult Index(int id, bool official)
         {
-            var contest = this.Data.Contests.GetById(id);
+            var contest = this.Data.ContestInstances.GetById(id);
             this.ValidateContest(contest, official);
 
             if (official && !this.ValidateContestIp(this.Request.UserHostAddress, id))
@@ -149,7 +149,7 @@
                 return this.RedirectToAction(GlobalConstants.Index, new { id, official });
             }
 
-            var contest = this.Data.Contests.All().Include(x => x.Questions).FirstOrDefault(x => x.Id == id);
+            var contest = this.Data.ContestInstances.All().Include(x => x.Questions).FirstOrDefault(x => x.Id == id);
 
             this.ValidateContest(contest, official);
 
@@ -184,7 +184,7 @@
                 return this.RedirectToAction(GlobalConstants.Index, new { id = registrationData.ContestId, official });
             }
 
-            var contest = this.Data.Contests.GetById(registrationData.ContestId);
+            var contest = this.Data.ContestInstances.GetById(registrationData.ContestId);
             this.ValidateContest(contest, official);
 
             if (official && contest.HasContestPassword)
@@ -441,7 +441,7 @@
                 throw new HttpException((int)HttpStatusCode.NotFound, Resource.ContestsGeneral.Problem_not_found);
             }
 
-            this.ValidateContest(problem.Contest, official);
+            this.ValidateContest(problem.ContestInstance, official);
 
             if (!this.Data.Participants.Any(problem.ContestId, this.UserProfile.Id, official))
             {
@@ -557,7 +557,7 @@
                 throw new HttpException((int)HttpStatusCode.NotFound, Resource.ContestsGeneral.Problem_not_found);
             }
 
-            var contest = problemWithResource.Contest;
+            var contest = problemWithResource.ContestInstance;
             bool userCanDownloadResource = false;
 
             if (this.UserProfile == null)
@@ -638,7 +638,7 @@
                 return this.RedirectToAction(GlobalConstants.Index, new { id, official = true });
             }
 
-            var contest = this.Data.Contests.GetById(id);
+            var contest = this.Data.ContestInstances.GetById(id);
 
             this.ValidateContest(contest, true);
 
@@ -661,7 +661,7 @@
                 return this.RedirectToAction(GlobalConstants.Index, new { id = model.ContestId, official = true });
             }
 
-            var contest = this.Data.Contests.All().Include(x => x.AllowedIps).Include("AllowedIps.Ip").FirstOrDefault(x => x.Id == model.ContestId);
+            var contest = this.Data.ContestInstances.All().Include(x => x.AllowedIps).Include("AllowedIps.Ip").FirstOrDefault(x => x.Id == model.ContestId);
 
             this.ValidateContest(contest, true);
 
@@ -691,7 +691,7 @@
 
         private bool ValidateContestIp(string ip, int contestId)
         {
-            var isValidIp = this.Data.Contests
+            var isValidIp = this.Data.ContestInstances
                 .All()
                 .Any(x => x.Id == contestId && (!x.AllowedIps.Any() || x.AllowedIps.Any(y => y.Ip.Value == ip)));
 

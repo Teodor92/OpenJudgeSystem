@@ -33,7 +33,7 @@
 
             var submissions = this.Data.Submissions
                 .All()
-                .Where(x => x.Participant.IsOfficial && x.Participant.UserId == userId && x.Participant.ContestId == contestId.Value)
+                .Where(x => x.Participant.IsOfficial && x.Participant.UserId == userId && x.Participant.ContestInstanceId == contestId.Value)
                 .GroupBy(x => x.Problem)
                 .Select(x => new
                 {

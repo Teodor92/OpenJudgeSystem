@@ -80,7 +80,7 @@
         [Authorize]
         public ActionResult Simple(int id, bool official, int? page)
         {
-            var contest = this.Data.Contests.All().Include(x => x.Problems).FirstOrDefault(x => x.Id == id);
+            var contest = this.Data.ContestInstances.All().Include(x => x.Problems).FirstOrDefault(x => x.Id == id);
 
             if (contest == null)
             {
@@ -163,7 +163,7 @@
                 throw new HttpException((int)HttpStatusCode.Forbidden, Resource.Contest_results_not_available);
             }
 
-            var contest = this.Data.Contests.All().Include(x => x.Problems).FirstOrDefault(x => x.Id == id);
+            var contest = this.Data.ContestInstances.All().Include(x => x.Problems).FirstOrDefault(x => x.Id == id);
 
             if (contest == null)
             {
@@ -202,7 +202,7 @@
                 throw new HttpException((int)HttpStatusCode.Forbidden, Resource.Contest_results_not_available);
             }
 
-            var contest = this.Data.Contests.All().Include(x => x.Problems).FirstOrDefault(x => x.Id == id);
+            var contest = this.Data.ContestInstances.All().Include(x => x.Problems).FirstOrDefault(x => x.Id == id);
 
             if (contest == null)
             {
@@ -223,7 +223,7 @@
             }
 
             var contestInfo =
-                this.Data.Contests.All()
+                this.Data.ContestInstances.All()
                     .Where(c => c.Id == id)
                     .Select(
                         c =>
@@ -237,7 +237,7 @@
                     .FirstOrDefault();
 
             var submissions = this.Data.Participants.All()
-                    .Where(participant => participant.ContestId == contestInfo.Id && participant.IsOfficial)
+                    .Where(participant => participant.ContestInstanceId == contestInfo.Id && participant.IsOfficial)
                     .SelectMany(participant =>
                         participant.Contest.Problems
                             .Where(pr => !pr.IsDeleted)
@@ -293,7 +293,7 @@
                 throw new HttpException((int)HttpStatusCode.Forbidden, Resource.Contest_results_not_available);
             }
             
-            var contest = this.Data.Contests.All().Include(x => x.Problems).FirstOrDefault(x => x.Id == contestId);
+            var contest = this.Data.ContestInstances.All().Include(x => x.Problems).FirstOrDefault(x => x.Id == contestId);
 
             if (contest == null)
             {
@@ -362,7 +362,7 @@
             return this.PartialView("_StatsChartPartial", contestId);
         }
 
-        private ContestResultsViewModel GetContestResults(Contest contest, bool official, bool isUserAdminOrLecturer)
+        private ContestResultsViewModel GetContestResults(ContestInstance contest, bool official, bool isUserAdminOrLecturer)
         {
             var contestResults = new ContestResultsViewModel
             {
@@ -378,7 +378,7 @@
                     .ThenBy(x => x.Name),
                 Results = this.Data.Participants
                     .All()
-                    .Where(participant => participant.ContestId == contest.Id && participant.IsOfficial == official)
+                    .Where(participant => participant.ContestInstanceId == contest.Id && participant.IsOfficial == official)
                     .Select(participant => new ParticipantResultViewModel
                     {
                         ParticipantUsername = participant.User.UserName,
@@ -424,7 +424,7 @@
             return contestResults;
         }
 
-        private ContestFullResultsViewModel GetContestFullResults(Contest contest, bool official)
+        private ContestFullResultsViewModel GetContestFullResults(ContestInstance contest, bool official)
         {
             var contestStartTime = official ? contest.StartTime : contest.PracticeStartTime;
 
@@ -440,7 +440,7 @@
                     .ThenBy(x => x.Name),
                 Results = this.Data.Participants
                     .All()
-                    .Where(participant => participant.ContestId == contest.Id && participant.IsOfficial == official)
+                    .Where(participant => participant.ContestInstanceId == contest.Id && participant.IsOfficial == official)
                     .Select(participant => new ParticipantFullResultViewModel
                     {
                         ParticipantUsername = participant.User.UserName,

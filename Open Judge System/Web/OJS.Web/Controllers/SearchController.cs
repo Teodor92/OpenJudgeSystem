@@ -30,12 +30,12 @@
                                         .Where(x => !x.IsDeleted && x.Name.Contains(searchResult.SearchTerm))
                                         .ToList()
                                         .AsQueryable()
-                                        .Where(x => x.Contest.CanBeCompeted || x.Contest.CanBePracticed)
+                                        .Where(x => x.ContestInstance.CanBeCompeted || x.ContestInstance.CanBePracticed)
                                         .Select(SearchResultViewModel.FromProblem);
 
                 searchResult.SearchResults.Add(SearchResultType.Problem, problemSearchResults);
 
-                var contestSearchResults = this.Data.Contests.All()
+                var contestSearchResults = this.Data.ContestInstances.All()
                                         .Where(x => x.IsVisible && !x.IsDeleted && x.Name.Contains(searchResult.SearchTerm))
                                         .ToList()
                                         .AsQueryable()

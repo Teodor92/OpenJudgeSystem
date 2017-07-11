@@ -1608,6 +1608,7 @@
     <Compile Include="Areas\Contests\Models\SubmissionExportType.cs" />
     <Compile Include="Areas\Contests\Models\SubmissionModel.cs" />
     <Compile Include="Areas\Contests\ViewModels\Contests\ContestCategoryListViewModel.cs" />
+    <Compile Include="Areas\Contests\ViewModels\Contests\ContestInstanceViewModel.cs" />
     <Compile Include="Areas\Contests\ViewModels\Contests\ContestPointsRangeViewModel.cs" />
     <Compile Include="Areas\Contests\ViewModels\Contests\ContestProblemMaterialViewModel.cs" />
     <Compile Include="Areas\Contests\ViewModels\Contests\ContestProblemStatsViewModel.cs" />

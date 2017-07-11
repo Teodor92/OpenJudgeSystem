@@ -14,7 +14,7 @@
     {
         private ICollection<ContestQuestion> questions;
         private ICollection<Problem> problems;
-        private ICollection<Participant> participants;
+       // private ICollection<Participant> participants;
         private ICollection<LecturerInContest> lecturers;
         private ICollection<ContestIp> allowedIps;
 
@@ -22,7 +22,7 @@
         {
             this.questions = new HashSet<ContestQuestion>();
             this.problems = new HashSet<Problem>();
-            this.participants = new HashSet<Participant>();
+          //  this.participants = new HashSet<Participant>();
             this.lecturers = new HashSet<LecturerInContest>();
             this.allowedIps = new HashSet<ContestIp>();
         }
@@ -48,29 +48,29 @@
 
         public ContestType Type { get; set; }
 
-        /// <remarks>
-        /// If StartTime is null the contest cannot be competed.
-        /// </remarks>
-        public DateTime? StartTime { get; set; }
+        ///// <remarks>
+        ///// If StartTime is null the contest cannot be competed.
+        ///// </remarks>
+        //public DateTime? StartTime { get; set; }
 
-        /// <remarks>
-        /// If EndTime is null the contest can be competed forever.
-        /// </remarks>
-        public DateTime? EndTime { get; set; }
+        ///// <remarks>
+        ///// If EndTime is null the contest can be competed forever.
+        ///// </remarks>
+        //public DateTime? EndTime { get; set; }
 
-        /// <remarks>
-        /// If ContestPassword is null the contest can be competed by everyone without require a password.
-        /// If the ContestPassword is not null the contest participant should provide a valid password.
-        /// </remarks>
-        [MaxLength(GlobalConstants.ContestPasswordMaxLength)]
-        public string ContestPassword { get; set; }
+        ///// <remarks>
+        ///// If ContestPassword is null the contest can be competed by everyone without require a password.
+        ///// If the ContestPassword is not null the contest participant should provide a valid password.
+        ///// </remarks>
+        //[MaxLength(GlobalConstants.ContestPasswordMaxLength)]
+        //public string ContestPassword { get; set; }
 
-        /// <remarks>
-        /// If PracticePassword is null the contest can be practiced by everyone without require a password.
-        /// If the PracticePassword is not null the practice participant should provide a valid password.
-        /// </remarks>
-        [MaxLength(GlobalConstants.ContestPasswordMaxLength)]
-        public string PracticePassword { get; set; }
+        ///// <remarks>
+        ///// If PracticePassword is null the contest can be practiced by everyone without require a password.
+        ///// If the PracticePassword is not null the practice participant should provide a valid password.
+        ///// </remarks>
+        //[MaxLength(GlobalConstants.ContestPasswordMaxLength)]
+        //public string PracticePassword { get; set; }
 
         /// <remarks>
         /// NewIpPassword is user for allowing a new IP to be used for the contest.
@@ -78,18 +78,18 @@
         [MaxLength(20)]
         public string NewIpPassword { get; set; }
 
-        /// <remarks>
-        /// If PracticeStartTime is null the contest cannot be practiced.
-        /// </remarks>
-        public DateTime? PracticeStartTime { get; set; }
+        ///// <remarks>
+        ///// If PracticeStartTime is null the contest cannot be practiced.
+        ///// </remarks>
+        //public DateTime? PracticeStartTime { get; set; }
 
-        /// <remarks>
-        /// If PracticeEndTime is null the contest can be practiced forever.
-        /// </remarks>
-        public DateTime? PracticeEndTime { get; set; }
+        ///// <remarks>
+        ///// If PracticeEndTime is null the contest can be practiced forever.
+        ///// </remarks>
+        //public DateTime? PracticeEndTime { get; set; }
 
-        [DefaultValue(0)]
-        public int LimitBetweenSubmissions { get; set; }
+        //[DefaultValue(0)]
+        //public int LimitBetweenSubmissions { get; set; }
 
         [DefaultValue(0)]
         public int OrderBy { get; set; }
@@ -114,11 +114,11 @@
             set { this.problems = value; }
         }
 
-        public virtual ICollection<Participant> Participants
-        {
-            get { return this.participants; }
-            set { this.participants = value; }
-        }
+        //public virtual ICollection<Participant> Participants
+        //{
+        //    get { return this.participants; }
+        //    set { this.participants = value; }
+        //}
 
         public virtual ICollection<ContestIp> AllowedIps
         {
@@ -126,98 +126,98 @@
             set { this.allowedIps = value; }
         }
 
-        [NotMapped]
-        public bool CanBeCompeted
-        {
-            get
-            {
-                if (!this.IsVisible)
-                {
-                    return false;
-                }
+        //[NotMapped]
+        //public bool CanBeCompeted
+        //{
+        //    get
+        //    {
+        //        if (!this.IsVisible)
+        //        {
+        //            return false;
+        //        }
 
-                if (this.IsDeleted)
-                {
-                    return false;
-                }
+        //        if (this.IsDeleted)
+        //        {
+        //            return false;
+        //        }
 
-                if (!this.StartTime.HasValue)
-                {
-                    // Cannot be competed
-                    return false;
-                }
+        //        if (!this.StartTime.HasValue)
+        //        {
+        //            // Cannot be competed
+        //            return false;
+        //        }
 
-                if (!this.EndTime.HasValue)
-                {
-                    // Compete forever
-                    return this.StartTime <= DateTime.Now;
-                }
+        //        if (!this.EndTime.HasValue)
+        //        {
+        //            // Compete forever
+        //            return this.StartTime <= DateTime.Now;
+        //        }
 
-                return this.StartTime <= DateTime.Now && DateTime.Now <= this.EndTime;
-            }
-        }
+        //        return this.StartTime <= DateTime.Now && DateTime.Now <= this.EndTime;
+        //    }
+        //}
 
-        [NotMapped]
-        public bool CanBePracticed
-        {
-            get
-            {
-                if (!this.IsVisible)
-                {
-                    return false;
-                }
+        //[NotMapped]
+        //public bool CanBePracticed
+        //{
+        //    get
+        //    {
+        //        if (!this.IsVisible)
+        //        {
+        //            return false;
+        //        }
 
-                if (this.IsDeleted)
-                {
-                    return false;
-                }
+        //        if (this.IsDeleted)
+        //        {
+        //            return false;
+        //        }
 
-                if (!this.PracticeStartTime.HasValue)
-                {
-                    // Cannot be practiced
-                    return false;
-                }
+        //        if (!this.PracticeStartTime.HasValue)
+        //        {
+        //            // Cannot be practiced
+        //            return false;
+        //        }
 
-                if (!this.PracticeEndTime.HasValue)
-                {
-                    // Practice forever
-                    return this.PracticeStartTime <= DateTime.Now;
-                }
+        //        if (!this.PracticeEndTime.HasValue)
+        //        {
+        //            // Practice forever
+        //            return this.PracticeStartTime <= DateTime.Now;
+        //        }
 
-                return this.PracticeStartTime <= DateTime.Now && DateTime.Now <= this.PracticeEndTime;
-            }
-        }
+        //        return this.PracticeStartTime <= DateTime.Now && DateTime.Now <= this.PracticeEndTime;
+        //    }
+        //}
 
-        [NotMapped]
-        public bool ResultsArePubliclyVisible
-        {
-            get
-            {
-                if (!this.IsVisible)
-                {
-                    return false;
-                }
+        //[NotMapped]
+        //public bool ResultsArePubliclyVisible
+        //{
+        //    get
+        //    {
+        //        if (!this.IsVisible)
+        //        {
+        //            return false;
+        //        }
 
-                if (this.IsDeleted)
-                {
-                    return false;
-                }
+        //        if (this.IsDeleted)
+        //        {
+        //            return false;
+        //        }
 
-                if (!this.StartTime.HasValue)
-                {
-                    // Cannot be competed
-                    return false;
-                }
+        //        if (!this.StartTime.HasValue)
+        //        {
+        //            // Cannot be competed
+        //            return false;
+        //        }
 
-                return this.EndTime.HasValue && this.EndTime.Value <= DateTime.Now;
-            }
-        }
+        //        return this.EndTime.HasValue && this.EndTime.Value <= DateTime.Now;
+        //    }
+        //}
 
-        [NotMapped]
-        public bool HasContestPassword => this.ContestPassword != null;
+        //[NotMapped]
+        //public bool HasContestPassword => this.ContestPassword != null;
 
-        [NotMapped]
-        public bool HasPracticePassword => this.PracticePassword != null;
+        //[NotMapped]
+        //public bool HasPracticePassword => this.PracticePassword != null;
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
@@ -229,11 +229,11 @@
                 return validationResults;
             }
 
-            if (contest.StartTime.HasValue && contest.EndTime.HasValue && contest.StartTime.Value > contest.EndTime.Value)
-            {
-                validationResults.Add(
-                    new ValidationResult("StartTime can not be after EndTime", new[] { "StartTime", "EndTime" }));
-            }
+            //if (contest.StartTime.HasValue && contest.EndTime.HasValue && contest.StartTime.Value > contest.EndTime.Value)
+            //{
+            //    validationResults.Add(
+            //        new ValidationResult("StartTime can not be after EndTime", new[] { "StartTime", "EndTime" }));
+            //}
 
             return validationResults;
         }

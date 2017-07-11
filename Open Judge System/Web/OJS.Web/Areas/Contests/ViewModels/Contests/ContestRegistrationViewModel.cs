@@ -11,7 +11,7 @@
 
     public class ContestRegistrationViewModel
     {
-        public ContestRegistrationViewModel(Contest contest, bool isOfficial)
+        public ContestRegistrationViewModel(ContestInstance contest, bool isOfficial)
         {
             this.ContestName = contest.Name;
             this.ContestId = contest.Id;
@@ -24,7 +24,7 @@
                 .Select(QuestionViewModel.FromQuestion);
         }
 
-        public ContestRegistrationViewModel(Contest contest, ContestRegistrationModel userAnswers, bool isOfficial)
+        public ContestRegistrationViewModel(ContestInstance contest, ContestRegistrationModel userAnswers, bool isOfficial)
             : this(contest, isOfficial)
         {
             this.Questions = this.Questions.Select(x =>

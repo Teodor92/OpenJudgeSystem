@@ -388,7 +388,7 @@
         {
             var selectedProblem = this.Data.Problems.All().FirstOrDefault(pr => pr.Id == problem);
 
-            var dropDownData = this.Data.Participants.All().Where(part => part.ContestId == selectedProblem.ContestId);
+            var dropDownData = this.Data.Participants.All().Where(part => part.ContestInstanceId == selectedProblem.ContestId);
 
             if (!string.IsNullOrEmpty(text))
             {
@@ -463,7 +463,7 @@
         {
             if (participantId.HasValue)
             {
-                if (!this.Data.Participants.All().Any(participant => participant.Id == participantId.Value && participant.ContestId == contestId))
+                if (!this.Data.Participants.All().Any(participant => participant.Id == participantId.Value && participant.ContestInstanceId == contestId))
                 {
                     this.ModelState.AddModelError("ParticipantId", Resource.Invalid_task_for_participant);
                 }

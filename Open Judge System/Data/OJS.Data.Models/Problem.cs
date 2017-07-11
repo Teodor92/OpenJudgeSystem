@@ -36,6 +36,8 @@
 
         public virtual Contest Contest { get; set; }
 
+        public virtual ContestInstance ContestInstance { get; set; }
+
         [Required]
         [MaxLength(GlobalConstants.ProblemNameMaxLength)]
         public string Name { get; set; }

@@ -42,7 +42,7 @@
         {
             var participantsByIps = this.Data.Participants
                 .All()
-                .Where(p => p.ContestId == id && p.IsOfficial)
+                .Where(p => p.ContestInstanceId == id && p.IsOfficial)
                 .Select(AntiCheatByIpAdministrationViewModel.ViewModel)
                 .Where(p => p.DifferentIps.Count() > 1)
                 .ToList();
@@ -56,7 +56,7 @@
                 {
                     withoutExcludeIps = withoutExcludeIps
                         .Where(p =>
-                            p.ContestId == id &&
+                            p.ContestInstanceId == id &&
                             p.IsOfficial &&
                             p.Submissions.AsQueryable().Count() > 1 &&
                             p.Submissions.AsQueryable()
@@ -210,7 +210,7 @@
         {
             var orExpressionContestIds = ExpressionBuilder.BuildOrExpression<Submission, int>(
                 contestIds,
-                s => s.Participant.ContestId);
+                s => s.Participant.ContestInstanceId);
 
             var plagiarismDetectorTypeCompatibleCompilerTypes = plagiarismDetectorType.GetCompatibleCompilerTypes();
             var orExpressionCompilerTypes = ExpressionBuilder.BuildOrExpression<Submission, CompilerType>(

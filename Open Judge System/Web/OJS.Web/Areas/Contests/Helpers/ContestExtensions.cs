@@ -6,7 +6,7 @@
 
     public static class ContestExtensions
     {
-        public static bool ShouldShowRegistrationForm(this Contest contest, bool isOfficialParticipant)
+        public static bool ShouldShowRegistrationForm(this ContestInstance contest, bool isOfficialParticipant)
         {
             // Show registration form if contest password is required
             var showRegistrationForm = (isOfficialParticipant && contest.HasContestPassword) || (!isOfficialParticipant && contest.HasPracticePassword);

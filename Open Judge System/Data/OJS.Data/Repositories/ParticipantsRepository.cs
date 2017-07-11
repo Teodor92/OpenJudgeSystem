@@ -19,14 +19,14 @@
             return
                 this.All()
                     .Include(x => x.Contest)
-                    .FirstOrDefault(x => x.ContestId == contestId && x.UserId == userId && x.IsOfficial == isOfficial);
+                    .FirstOrDefault(x => x.ContestInstanceId == contestId && x.UserId == userId && x.IsOfficial == isOfficial);
         }
 
         public bool Any(int contestId, string userId, bool isOfficial)
         {
             return
                 this.All()
-                    .Any(x => x.ContestId == contestId && x.UserId == userId && x.IsOfficial == isOfficial);
+                    .Any(x => x.ContestInstanceId == contestId && x.UserId == userId && x.IsOfficial == isOfficial);
         }
     }
 }

@@ -18,8 +18,8 @@
         {
             return this.All()
                 .Where(x => x.IsPublic ??
-                    (((x.Participant.IsOfficial && x.Problem.Contest.ContestPassword == null) ||
-                     (!x.Participant.IsOfficial && x.Problem.Contest.PracticePassword == null))
+                    (((x.Participant.IsOfficial && x.Problem.ContestInstance.ContestPassword == null) ||
+                     (!x.Participant.IsOfficial && x.Problem.ContestInstance.PracticePassword == null))
                     && x.Problem.Contest.IsVisible && !x.Problem.Contest.IsDeleted
                     && x.Problem.ShowResults));
         }

@@ -445,8 +445,8 @@
             {
                 Name = "Contest",
                 OrderBy = 1,
-                PracticeStartTime = DateTime.Now.AddDays(-2),
-                StartTime = DateTime.Now.AddDays(-2),
+              //  PracticeStartTime = DateTime.Now.AddDays(-2),
+              //  StartTime = DateTime.Now.AddDays(-2),
                 IsVisible = true,
                 IsDeleted = false,
                 Category = category
@@ -456,8 +456,8 @@
             {
                 Name = "Other Contest",
                 OrderBy = 2,
-                PracticeStartTime = DateTime.Now.AddDays(-2),
-                StartTime = DateTime.Now.AddDays(-2),
+               // PracticeStartTime = DateTime.Now.AddDays(-2),
+               // StartTime = DateTime.Now.AddDays(-2),
                 IsVisible = true,
                 IsDeleted = false,
                 Category = category
@@ -504,7 +504,7 @@
 
             var participant = new Participant
             {
-                Contest = contest,
+               // Contest = contest,
                 IsOfficial = false,
                 User = user
             };
@@ -577,8 +577,8 @@
             var contest = new Contest
             {
                 Name = "Contest batka 2",
-                StartTime = DateTime.Now.AddDays(1),
-                EndTime = DateTime.Now.AddDays(2),
+               // StartTime = DateTime.Now.AddDays(1),
+              //  EndTime = DateTime.Now.AddDays(2),
                 IsDeleted = false,
                 IsVisible = true,
                 OrderBy = 1
@@ -602,7 +602,7 @@
 
             var participant = new Participant
             {
-                Contest = contest,
+              //  Contest = contest,
                 IsOfficial = false,
                 User = user
             };
@@ -754,118 +754,118 @@
 
         private void SeedRandomContests(OjsDbContext context)
         {
-            foreach (var contest in context.Contests)
-            {
-                context.Contests.Remove(contest);
-            }
+            //foreach (var contest in context.Contests)
+            //{
+            //    context.Contests.Remove(contest);
+            //}
 
-            var category = new ContestCategory
-            {
-                Name = "Category",
-                OrderBy = 1,
-                IsVisible = true,
-                IsDeleted = false,
-            };
+            //var category = new ContestCategory
+            //{
+            //    Name = "Category",
+            //    OrderBy = 1,
+            //    IsVisible = true,
+            //    IsDeleted = false,
+            //};
 
-            context.Contests.Add(
-                new Contest
-                {
-                    Name = "DSA future",
-                    IsVisible = true,
-                    StartTime = DateTime.Now.AddHours(10),
-                    EndTime = DateTime.Now.AddHours(19),
-                    Category = category,
-                });
-            context.Contests.Add(
-                new Contest
-                {
-                    Name = "DSA 2 out",
-                    IsVisible = false,
-                    StartTime = DateTime.Now.AddHours(10),
-                    EndTime = DateTime.Now.AddHours(19),
-                    Category = category,
-                });
-            context.Contests.Add(
-                new Contest
-                {
-                    Name = "DSA 3 past",
-                    IsVisible = true,
-                    StartTime = DateTime.Now.AddHours(-10),
-                    EndTime = DateTime.Now.AddHours(-8),
-                    Category = category,
-                });
-            context.Contests.Add(
-                new Contest
-                {
-                    Name = "DSA 2 active",
-                    IsVisible = true,
-                    StartTime = DateTime.Now.AddHours(-2),
-                    EndTime = DateTime.Now.AddHours(2),
-                    Category = category,
-                });
-            context.Contests.Add(
-                new Contest
-                {
-                    Name = "JS Apps another active",
-                    IsVisible = true,
-                    StartTime = DateTime.Now.AddHours(-2),
-                    EndTime = DateTime.Now.AddHours(2),
-                    Category = category,
-                });
-            context.Contests.Add(
-                new Contest
-                {
-                    Name = "JS Apps another active 2",
-                    IsVisible = true,
-                    StartTime = DateTime.Now.AddHours(-2),
-                    EndTime = DateTime.Now.AddHours(2),
-                    Category = category,
-                });
-            context.Contests.Add(
-                new Contest
-                {
-                    Name = "JS Apps another active 3",
-                    IsVisible = true,
-                    StartTime = DateTime.Now.AddHours(-2),
-                    EndTime = DateTime.Now.AddHours(2),
-                    Category = category,
-                });
-            context.Contests.Add(
-                new Contest
-                {
-                    Name = "JS Apps 2 past",
-                    IsVisible = true,
-                    StartTime = DateTime.Now.AddHours(-10),
-                    EndTime = DateTime.Now.AddHours(-8),
-                    Category = category,
-                });
-            context.Contests.Add(
-                new Contest
-                {
-                    Name = "JS Apps 3 past",
-                    IsVisible = true,
-                    StartTime = DateTime.Now.AddHours(-10),
-                    EndTime = DateTime.Now.AddHours(-8),
-                    Category = category,
-                });
-            context.Contests.Add(
-                new Contest
-                {
-                    Name = "JS Apps 3 past",
-                    IsVisible = true,
-                    StartTime = DateTime.Now.AddHours(10),
-                    EndTime = DateTime.Now.AddHours(18),
-                    Category = category,
-                });
-            context.Contests.Add(
-                new Contest
-                {
-                    Name = "JS Apps 3 past",
-                    IsVisible = true,
-                    StartTime = DateTime.Now.AddHours(10),
-                    EndTime = DateTime.Now.AddHours(18),
-                    Category = category,
-                });
+            //context.Contests.Add(
+            //    new Contest
+            //    {
+            //        Name = "DSA future",
+            //        IsVisible = true,
+            //        StartTime = DateTime.Now.AddHours(10),
+            //        EndTime = DateTime.Now.AddHours(19),
+            //        Category = category,
+            //    });
+            //context.Contests.Add(
+            //    new Contest
+            //    {
+            //        Name = "DSA 2 out",
+            //        IsVisible = false,
+            //        StartTime = DateTime.Now.AddHours(10),
+            //        EndTime = DateTime.Now.AddHours(19),
+            //        Category = category,
+            //    });
+            //context.Contests.Add(
+            //    new Contest
+            //    {
+            //        Name = "DSA 3 past",
+            //        IsVisible = true,
+            //        StartTime = DateTime.Now.AddHours(-10),
+            //        EndTime = DateTime.Now.AddHours(-8),
+            //        Category = category,
+            //    });
+            //context.Contests.Add(
+            //    new Contest
+            //    {
+            //        Name = "DSA 2 active",
+            //        IsVisible = true,
+            //        StartTime = DateTime.Now.AddHours(-2),
+            //        EndTime = DateTime.Now.AddHours(2),
+            //        Category = category,
+            //    });
+            //context.Contests.Add(
+            //    new Contest
+            //    {
+            //        Name = "JS Apps another active",
+            //        IsVisible = true,
+            //        StartTime = DateTime.Now.AddHours(-2),
+            //        EndTime = DateTime.Now.AddHours(2),
+            //        Category = category,
+            //    });
+            //context.Contests.Add(
+            //    new Contest
+            //    {
+            //        Name = "JS Apps another active 2",
+            //        IsVisible = true,
+            //        StartTime = DateTime.Now.AddHours(-2),
+            //        EndTime = DateTime.Now.AddHours(2),
+            //        Category = category,
+            //    });
+            //context.Contests.Add(
+            //    new Contest
+            //    {
+            //        Name = "JS Apps another active 3",
+            //        IsVisible = true,
+            //        StartTime = DateTime.Now.AddHours(-2),
+            //        EndTime = DateTime.Now.AddHours(2),
+            //        Category = category,
+            //    });
+            //context.Contests.Add(
+            //    new Contest
+            //    {
+            //        Name = "JS Apps 2 past",
+            //        IsVisible = true,
+            //        StartTime = DateTime.Now.AddHours(-10),
+            //        EndTime = DateTime.Now.AddHours(-8),
+            //        Category = category,
+            //    });
+            //context.Contests.Add(
+            //    new Contest
+            //    {
+            //        Name = "JS Apps 3 past",
+            //        IsVisible = true,
+            //        StartTime = DateTime.Now.AddHours(-10),
+            //        EndTime = DateTime.Now.AddHours(-8),
+            //        Category = category,
+            //    });
+            //context.Contests.Add(
+            //    new Contest
+            //    {
+            //        Name = "JS Apps 3 past",
+            //        IsVisible = true,
+            //        StartTime = DateTime.Now.AddHours(10),
+            //        EndTime = DateTime.Now.AddHours(18),
+            //        Category = category,
+            //    });
+            //context.Contests.Add(
+            //    new Contest
+            //    {
+            //        Name = "JS Apps 3 past",
+            //        IsVisible = true,
+            //        StartTime = DateTime.Now.AddHours(10),
+            //        EndTime = DateTime.Now.AddHours(18),
+            //        Category = category,
+            //    });
         }
     }
 }

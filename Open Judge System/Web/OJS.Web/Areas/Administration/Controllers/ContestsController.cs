@@ -177,53 +177,53 @@
             return this.GridOperation(request, model);
         }
 
-        public ActionResult GetFutureContests([DataSourceRequest]DataSourceRequest request)
-        {
-            var futureContests = this.Data.Contests
-                .AllFuture()
-                .OrderBy(contest => contest.StartTime)
-                .Take(3)
-                .Select(ShortViewModelType.FromContest);
+        //public ActionResult GetFutureContests([DataSourceRequest]DataSourceRequest request)
+        //{
+        //    var futureContests = this.Data.Contests
+        //        .AllFuture()
+        //        .OrderBy(contest => contest.StartTime)
+        //        .Take(3)
+        //        .Select(ShortViewModelType.FromContest);
 
-            if (!futureContests.Any())
-            {
-                return this.Content(Resource.No_future_contests);
-            }
+        //    if (!futureContests.Any())
+        //    {
+        //        return this.Content(Resource.No_future_contests);
+        //    }
 
-            return this.PartialView(GlobalConstants.QuickContestsGrid, futureContests);
-        }
+        //    return this.PartialView(GlobalConstants.QuickContestsGrid, futureContests);
+        //}
 
-        public ActionResult GetActiveContests([DataSourceRequest]DataSourceRequest request)
-        {
-            var activeContests = this.Data.Contests
-                .AllActive()
-                .OrderBy(contest => contest.EndTime)
-                .Take(3)
-                .Select(ShortViewModelType.FromContest);
+        //public ActionResult GetActiveContests([DataSourceRequest]DataSourceRequest request)
+        //{
+        //    var activeContests = this.Data.Contests
+        //        .AllActive()
+        //        .OrderBy(contest => contest.EndTime)
+        //        .Take(3)
+        //        .Select(ShortViewModelType.FromContest);
 
-            if (!activeContests.Any())
-            {
-                return this.Content(Resource.No_active_contests);
-            }
+        //    if (!activeContests.Any())
+        //    {
+        //        return this.Content(Resource.No_active_contests);
+        //    }
 
-            return this.PartialView(GlobalConstants.QuickContestsGrid, activeContests);
-        }
+        //    return this.PartialView(GlobalConstants.QuickContestsGrid, activeContests);
+        //}
 
-        public ActionResult GetLatestContests([DataSourceRequest]DataSourceRequest request)
-        {
-            var latestContests = this.Data.Contests
-                .AllVisible()
-                .OrderByDescending(contest => contest.CreatedOn)
-                .Take(3)
-                .Select(ShortViewModelType.FromContest);
+        //public ActionResult GetLatestContests([DataSourceRequest]DataSourceRequest request)
+        //{
+        //    var latestContests = this.Data.Contests
+        //        .AllVisible()
+        //        .OrderByDescending(contest => contest.CreatedOn)
+        //        .Take(3)
+        //        .Select(ShortViewModelType.FromContest);
 
-            if (!latestContests.Any())
-            {
-                return this.Content(Resource.No_latest_contests);
-            }
+        //    if (!latestContests.Any())
+        //    {
+        //        return this.Content(Resource.No_latest_contests);
+        //    }
 
-            return this.PartialView(GlobalConstants.QuickContestsGrid, latestContests);
-        }
+        //    return this.PartialView(GlobalConstants.QuickContestsGrid, latestContests);
+        //}
 
         public JsonResult GetCategories(string contestFilter)
         {
@@ -253,26 +253,26 @@
             return this.Json(dropDownData, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult StartAsLab(LabStartInputModel inputModel)
-        {
-            if (!this.CheckIfUserHasContestPermissions(inputModel.ContestCreateId))
-            {
-                this.TempData[GlobalConstants.DangerMessage] = "Нямате привилегиите за това действие";
-                return this.RedirectToAction("Index", "Contests", new { area = "Administration" });
-            }
+        //public ActionResult StartAsLab(LabStartInputModel inputModel)
+        //{
+        //    if (!this.CheckIfUserHasContestPermissions(inputModel.ContestCreateId))
+        //    {
+        //        this.TempData[GlobalConstants.DangerMessage] = "Нямате привилегиите за това действие";
+        //        return this.RedirectToAction("Index", "Contests", new { area = "Administration" });
+        //    }
 
-            var contest = this.Data.Contests.GetById(inputModel.ContestCreateId);
+        //    var contest = this.Data.Contests.GetById(inputModel.ContestCreateId);
 
-            if (contest != null)
-            {
-                contest.StartTime = DateTime.Now.AddSeconds(StartTimeDelayInSeconds);
-                contest.EndTime = DateTime.Now.AddSeconds(StartTimeDelayInSeconds + LabDurationInSeconds);
-                contest.IsVisible = true;
-                this.Data.SaveChanges();
-            }
+        //    if (contest != null)
+        //    {
+        //        contest.StartTime = DateTime.Now.AddSeconds(StartTimeDelayInSeconds);
+        //        contest.EndTime = DateTime.Now.AddSeconds(StartTimeDelayInSeconds + LabDurationInSeconds);
+        //        contest.IsVisible = true;
+        //        this.Data.SaveChanges();
+        //    }
 
-            return new EmptyResult();
-        }
+        //    return new EmptyResult();
+        //}
 
         [HttpGet]
         public ActionResult ReadIpsContaining(string value)
@@ -291,7 +291,7 @@
 
         public void MoveSubmission(int contestId)
         {
-            var categoryContest = this.Data.Contests.GetById(contestId);
+            var categoryContest = this.Data.ContestInstances.GetById(contestId);
 
             var competeOnlyParticipants = categoryContest
                 .Participants

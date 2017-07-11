@@ -6,7 +6,7 @@
 
     public class HomeContestViewModel
     {
-        public static Expression<Func<Contest, HomeContestViewModel>> FromContest
+        public static Expression<Func<ContestInstance, HomeContestViewModel>> FromContest
         {
             get
             {

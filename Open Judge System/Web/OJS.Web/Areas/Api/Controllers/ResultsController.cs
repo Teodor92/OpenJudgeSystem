@@ -38,7 +38,7 @@
 
             var participants = this.data.Participants
                 .All()
-                .Where(x => x.IsOfficial && x.ContestId == contestId.Value && x.Answers.Any(a => a.Answer == answer));
+                .Where(x => x.IsOfficial && x.ContestInstanceId == contestId.Value && x.Answers.Any(a => a.Answer == answer));
 
             var participant = participants.FirstOrDefault();
             if (participant == null)
@@ -80,7 +80,7 @@
             }
 
             var participants = this.data.Participants.All().Where(
-                x => x.IsOfficial && x.ContestId == contestId.Value && x.User.Email == email);
+                x => x.IsOfficial && x.ContestInstanceId == contestId.Value && x.User.Email == email);
 
             var participant = participants.FirstOrDefault();
             if (participant == null)
@@ -123,7 +123,7 @@
 
             var participants = this.data.Participants
                 .All()
-                .Where(x => x.IsOfficial && x.ContestId == contestId.Value)
+                .Where(x => x.IsOfficial && x.ContestInstanceId == contestId.Value)
                 .Select(participant => new
                 {
                     participant.User.UserName,
@@ -178,7 +178,7 @@
 
             var participants = this.data.Participants
                 .All()
-                .Where(x => x.ContestId == contestId.Value)
+                .Where(x => x.ContestInstanceId == contestId.Value)
                 .Select(participant => new
                 {
                     participant.UserId,
@@ -215,7 +215,7 @@
 
             var participants = this.data.Participants
                 .All()
-                .Where(x => x.IsOfficial && x.ContestId == contestId.Value)
+                .Where(x => x.IsOfficial && x.ContestInstanceId == contestId.Value)
                 .Select(participant => new
                 {
                     participant.User.UserName,

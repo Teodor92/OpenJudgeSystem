@@ -21,7 +21,7 @@
             }
         }
 
-        public static Expression<Func<Contest, SearchResultViewModel>> FromContest
+        public static Expression<Func<ContestInstance, SearchResultViewModel>> FromContest
         {
             get
             {

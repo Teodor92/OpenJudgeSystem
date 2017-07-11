@@ -21,7 +21,7 @@
                 return p => new ParticipantAdministrationViewModel
                 {
                     Id = p.Id,
-                    ContestId = p.ContestId,
+                    ContestId = p.ContestInstanceId,
                     ContestName = p.Contest.Name,
                     UserId = p.UserId,
                     UserName = p.User.UserName,

@@ -57,7 +57,7 @@
                 Problems = contest.Problems.AsQueryable().OrderBy(x => x.OrderBy).ThenBy(x => x.Name),
                 Questions = contest.Questions.OrderBy(x => x.Id),
                 Results = this.Data.Participants.All()
-                    .Where(participant => participant.ContestId == contest.Id && participant.IsOfficial == compete)
+                    .Where(participant => participant.ContestInstanceId == contest.Id && participant.IsOfficial == compete)
                     .Select(participant => new
                     {
                         ParticipantUserName = participant.User.UserName,
@@ -319,7 +319,7 @@
         {
             var participants = this.Data.Participants
                 .All()
-                .Where(x => x.ContestId == contestId && x.IsOfficial == isOfficialContest)
+                .Where(x => x.ContestInstanceId == contestId && x.IsOfficial == isOfficialContest)
                 .Select(ParticipantModel.Model)
                 .OrderBy(x => x.UserName)
                 .ToList();

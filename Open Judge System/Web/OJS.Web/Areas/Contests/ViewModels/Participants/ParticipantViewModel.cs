@@ -10,12 +10,12 @@
     {
         public ParticipantViewModel(Participant participant, bool official)
         {
-            this.Contest = ContestViewModel.FromContest.Compile()(participant.Contest);
+            this.ContestInstance = ContestInstanceViewModel.FromContest.Compile()(participant.Contest);
             this.LastSubmissionTime = participant.Submissions.Any() ? (DateTime?)participant.Submissions.Max(x => x.CreatedOn) : null;
             this.ContestIsCompete = official;
         }
 
-        public ContestViewModel Contest { get; set; }
+        public ContestInstanceViewModel ContestInstance { get; set; }
 
         public DateTime? LastSubmissionTime { get; set; }
 

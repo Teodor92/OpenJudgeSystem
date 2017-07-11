@@ -23,11 +23,11 @@
 
             var indexViewModel = new IndexViewModel
             {
-                ActiveContests = this.Data.Contests.AllActive()
+                ActiveContests = this.Data.ContestInstances.AllActive()
                     .OrderByDescending(x => x.StartTime)
                     .Select(HomeContestViewModel.FromContest)
                     .ToList(),
-                FutureContests = this.Data.Contests.All()
+                FutureContests = this.Data.ContestInstances.All()
                     .Where(x => x.StartTime > DateTime.Now &&
                         (x.IsVisible ||
                             isAdmin ||
@@ -36,7 +36,7 @@
                     .OrderBy(x => x.StartTime)
                     .Select(HomeContestViewModel.FromContest)
                     .ToList(),
-            PastContests = this.Data.Contests.AllPast()
+            PastContests = this.Data.ContestInstances.AllPast()
                     .OrderByDescending(x => x.StartTime)
                     .Select(HomeContestViewModel.FromContest)
                     .Take(5)
